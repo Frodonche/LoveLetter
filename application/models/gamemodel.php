@@ -1,7 +1,6 @@
 <?php
 class Gamemodel extends CI_Model{
-    private $_cartes = array(8, 7, 6, 5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1);
-       
+    private $_cartes = array(8, 7, 6, 5, 4, 3, 2, 1);
 	function __construct(){
 		parent::__construct();
 	}

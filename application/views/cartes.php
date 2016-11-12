@@ -25,7 +25,7 @@
                     if(isset($images)){ // si on veut les noms
                         foreach($images as $im){
                             ?>
-                <td> <img src="<?php echo $im; ?>" class="img-responsible"> </td>
+                <td> <img src="<?php echo $im; ?>" height="250" width="175" class="img-responsible"> </td>
                 <?php
                         }
                     }
