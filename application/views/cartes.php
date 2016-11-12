@@ -2,7 +2,6 @@
         <table align="center">
             <caption> Cartes </caption>
             <tr align="center">
-                <th> Numéro </th>
                 <?php 
                     if(isset($array)){ // si on veut les numéros
                         foreach($array as $tab)
@@ -12,7 +11,6 @@
              </tr>   
               
             <tr align="center">
-                <th> Traduction </th>
             
                 <?php 
                     if(isset($traduites)){ // si on veut les noms
@@ -21,5 +19,16 @@
                     }
                 ?>
 
+            </tr>
+            <tr align="center">
+                 <?php 
+                    if(isset($images)){ // si on veut les noms
+                        foreach($images as $im){
+                            ?>
+                <td> <img src="<?php echo $im; ?>" class="img-responsible"> </td>
+                <?php
+                        }
+                    }
+                ?>
             </tr>
         </table>

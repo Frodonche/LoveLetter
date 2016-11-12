@@ -22,5 +22,12 @@ class GameController extends CI_Controller{
            $data['traduites'] = $this->gamemodel->getCartesTraduites();
            $this->load->view('cartes', $data);
        }
+       
+       function cartesImages(){
+           $data['array'] = $this->gamemodel->getCartes();
+           $data['traduites'] = $this->gamemodel->getCartesTraduites();
+           $data['images'] = $this->gamemodel->getCartesImages();
+           $this->load->view('cartes', $data);
+       }
 }
 ?>
