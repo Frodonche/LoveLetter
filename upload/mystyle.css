@@ -2,29 +2,25 @@ body{
     background-image:url("http://localhost/LoveLetter/upload/background.png");
     background-repeat: no-repeat;
     background-size: 100%;
-    color :#F1C40F;
-    font-family: Lucida Sans;
-    font-style : italic;
 }
 
 h1{
     text-align: center;
-    color :#F1C40F;
+    color: #F1C40F;
     font-family: Lucida Sans;
-    font-style : italic;
+    font-style: italic;
     text-decoration: underline;
 }
 
 h2{
-    color :#F1C40F;
     font-family: Lucida Sans;
-    font-style : italic;
+    font-style: italic;
 }
 
 p{
-    color :#F1C40F;
     font-family: Lucida Sans;
-    font-style : italic;
+    font-style: italic;
+    font-weight: bold;
 }
 
 #ref{
@@ -33,8 +29,8 @@ p{
     border-color: #F1C40F;
     font-family: Lucida Sans;
     font-weight: bold;
-    color :#F1C40F;
-    font-style : italic;
+    color: #F1C40F;
+    font-style: italic;
 }
 
 
@@ -43,6 +39,6 @@ caption{
     border-color: #F1C40F;
     font-family: Lucida Sans;
     font-weight: bold;
-    color :#F1C40F;
-    font-style : italic;
+    color: #F1C40F;
+    font-style: italic;
 }
