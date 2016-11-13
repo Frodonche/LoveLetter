@@ -1,7 +1,10 @@
 body{
     background-image:url("http://localhost/LoveLetter/upload/background.png");
-    background-repeat: false;
+    background-repeat: no-repeat;
     background-size: 100%;
+    color :#F1C40F;
+    font-family: Lucida Sans;
+    font-style : italic;
 }
 
 h1{
@@ -10,6 +13,18 @@ h1{
     font-family: Lucida Sans;
     font-style : italic;
     text-decoration: underline;
+}
+
+h2{
+    color :#F1C40F;
+    font-family: Lucida Sans;
+    font-style : italic;
+}
+
+p{
+    color :#F1C40F;
+    font-family: Lucida Sans;
+    font-style : italic;
 }
 
 #ref{
@@ -21,6 +36,7 @@ h1{
     color :#F1C40F;
     font-style : italic;
 }
+
 
 caption{
     border-width: 2px;

@@ -4,7 +4,6 @@ class GameController extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('gamemodel');
-                $this->load->library('image_lib');
 
 	}
 	
