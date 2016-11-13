@@ -1,11 +1,17 @@
-
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://localhost/LoveLetter/upload/mystyle.css">
+        <title>Regles</title>
+    </head>
+    
+    <body>
         <table align="center">
-            <caption> Cartes </caption>
+            <caption> Cards </caption>
             <tr align="center">
                 <?php 
                     if(isset($array)){ // si on veut les numéros
                         foreach($array as $tab)
-                           echo "<td>".$tab."</td>";
+                           echo "<td id='ref'>".$tab."</td>";
                     }
                     ?>
              </tr>   
@@ -15,7 +21,7 @@
                 <?php 
                     if(isset($traduites)){ // si on veut les noms
                         foreach($traduites as $trad)
-                            echo "<td>".$trad."</td>";
+                            echo "<td id='ref'>".$trad."</td>";
                     }
                 ?>
 
@@ -32,3 +38,9 @@
                 ?>
             </tr>
         </table>
+        
+        <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/'>
+                    <center><input type ='submit' value="Retour au menu"/></center>
+        </form>
+</body>
+</html>

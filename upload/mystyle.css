@@ -1,0 +1,32 @@
+body{
+    background-image:url("http://localhost/LoveLetter/upload/background.png");
+    background-repeat: false;
+    background-size: 100%;
+}
+
+h1{
+    text-align: center;
+    color :#F1C40F;
+    font-family: Lucida Sans;
+    font-style : italic;
+    text-decoration: underline;
+}
+
+#ref{
+    border-style:solid; 
+    border-width: 2px;
+    border-color: #F1C40F;
+    font-family: Lucida Sans;
+    font-weight: bold;
+    color :#F1C40F;
+    font-style : italic;
+}
+
+caption{
+    border-width: 2px;
+    border-color: #F1C40F;
+    font-family: Lucida Sans;
+    font-weight: bold;
+    color :#F1C40F;
+    font-style : italic;
+}
