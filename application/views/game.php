@@ -6,8 +6,5 @@
 	
 	<body>
             <h1> Bienvenue sur LoveLetter ! </h1>
-                <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/cartesImages'>
-                    <center><input type ='submit' value="Voir les cartes"/></center>
-                </form>
-        </body>
+        <center><a href="http://localhost/LoveLetter/index.php/gamecontroller/cartesImages"><img src="http://localhost/LoveLetter/upload/backCard.png" height="250" width="175" class="img-responsible"/></a></center>
 </html>
