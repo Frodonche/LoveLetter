@@ -6,7 +6,7 @@
 	
 	<body>
             <h1> LoveLetter</h1>
-            <center><a href="http://localhost/LoveLetter/index.php/gamecontroller/cartesImages"><img src="http://localhost/LoveLetter/upload/backCard.png" height="250" width="175" class="img-responsible"/></a></center>
+            <center><a href="http://localhost/LoveLetter/index.php/gamecontroller/cartes"><img src="http://localhost/LoveLetter/upload/backCard.png" height="250" width="175" class="img-responsible"/></a></center>
         
             <center> <h2>How to Play</h2>
 
@@ -18,7 +18,15 @@
 
             <p>If no one ends the round by playing a card which ends the round, then the player holding the highest-value card at the end (when the deck runs out) wins. </p>
 
-            <p>The winner of each round earns a point. The first player to earn seven points wins the game. Happy playing!</p>
+            <p>The winner of each round earns a point. The first player to earn seven points wins the game. Happy playing!</p> <br/>
+            
+            
+            
+            <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/players'>
+                    <h2> Accounts </h2>
+                    <input type ='submit' value="Go To"/>
+            </form>
             </center>
         </body>
+        
 </html>

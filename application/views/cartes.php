@@ -5,42 +5,45 @@
     </head>
     
     <body>
-        <table align="center">
-            <caption> Cards </caption>
-            <tr align="center">
+        <table align="center" id="jaune">
+            <caption id="jaune"> Cards </caption>
+    
                 <?php 
-                    if(isset($array)){ // si on veut les numéros
-                        foreach($array as $tab)
-                           echo "<td id='ref'>".$tab."</td>";
+                    if(isset($array)){ // si on veut les noms              
+                 ?>
+                            <tr align="center">
+                                <?php 
+                                    foreach($array->result() as $row2){
+                                    echo "<td id='ref'>".$row2->id."</td>"; 
+                                    }
+                                ?>
+                             </tr>    
+                             <tr align="center">
+                                <?php 
+                                    foreach($array->result() as $row2){
+                                    echo "<td id='ref'>".$row2->name."</td>";
+                                    }
+                                ?>
+                             </tr>
+                             <tr align="center">
+                                <?php 
+                                    foreach($array->result() as $row2) {   
+                                        echo "<td><img src='".$row2->path."' height='65%' width='100%' class='img-responsible'> </td>";
+                                    }
+                                ?>
+                             </tr> 
+                        <?php                                          
                     }
-                    ?>
-             </tr>   
-              
-            <tr align="center">
-            
-                <?php 
-                    if(isset($traduites)){ // si on veut les noms
-                        foreach($traduites as $trad)
-                            echo "<td id='ref'>".$trad."</td>";
-                    }
-                ?>
-
-            </tr>
-            <tr align="center">
-                 <?php 
-                    if(isset($images)){ // si on veut les noms
-                        foreach($images as $im){
-                            ?>
-                <td> <img src="<?php echo $im; ?>" height="65%" width="100%" class="img-responsible"> </td>
-                <?php
-                        }
-                    }
-                ?>
-            </tr>
+                        ?>
         </table>
         
+        
+</body>
+
+
+<footer>
         <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/'>
                     <center><input type ='submit' value="Retour au menu"/></center>
-        </form>
-</body>
+        </form>    
+</footer>
 </html>

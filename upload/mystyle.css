@@ -4,6 +4,34 @@ body{
     background-size: 100%;
 }
 
+table{
+    border-style:solid; 
+    border-width: 2px;
+    border-collapse:collapse
+}
+
+tr{
+    border-style:solid; 
+    border-width: 2px;
+}
+
+th{
+    text-align: center;
+    font-family: Lucida Sans;
+    font-style: italic;
+    border-style:solid; 
+    border-width: 2px;
+}
+
+td{
+    text-align: center;
+    border-style:solid; 
+    border-width: 2px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Lucida Sans;
+}
+
 h1{
     text-align: center;
     color: #F1C40F;
@@ -23,9 +51,7 @@ p{
     font-weight: bold;
 }
 
-#ref{
-    border-style:solid; 
-    border-width: 2px;
+#jaune{
     border-color: #F1C40F;
     font-family: Lucida Sans;
     font-weight: bold;
@@ -36,9 +62,7 @@ p{
 
 caption{
     border-width: 2px;
-    border-color: #F1C40F;
     font-family: Lucida Sans;
     font-weight: bold;
-    color: #F1C40F;
     font-style: italic;
 }

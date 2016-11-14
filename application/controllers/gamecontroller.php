@@ -4,7 +4,6 @@ class GameController extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('gamemodel');
-
 	}
 	
 	function index(){
@@ -15,18 +14,25 @@ class GameController extends CI_Controller{
             $data['array'] = $this->gamemodel->getCartes();
             $this->load->view('cartes', $data);
         }
-        
-       function cartesTraduites(){
-           $data['array'] = $this->gamemodel->getCartes();
-           $data['traduites'] = $this->gamemodel->getCartesTraduites();
-           $this->load->view('cartes', $data);
+       
+       function players(){
+           $data['infos'] = $this->gamemodel->getPlayers();
+           $this->load->view('players', $data);
        }
        
-       function cartesImages(){
-           $data['array'] = $this->gamemodel->getCartes();
-           $data['traduites'] = $this->gamemodel->getCartesTraduites();
-           $data['images'] = $this->gamemodel->getCartesImages();
-           $this->load->view('cartes', $data);
+       function register(){
+           if ($_POST['pseudo']!='' && $_POST['psw']!=''){
+                $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
+                $this->players();
+           }
+       }
+       
+       function delete($pseudo){
+           if($pseudo !=''){
+               $pseudo = str_replace("%20", " ", $pseudo);
+               $this->gamemodel->delete($pseudo);               
+           }
+           $this->players();
        }
 }
 ?>
