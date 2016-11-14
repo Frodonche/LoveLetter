@@ -22,9 +22,20 @@ class GameController extends CI_Controller{
        
        function register(){
            if ($_POST['pseudo']!='' && $_POST['psw']!=''){
-                $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
-                $this->players();
+               // $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
+                $onche = $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
+                
+                if($onche != null)
+                    $this->players();
+                else
+                    $this->erreurAccount();
            }
+       }
+       
+       function erreurAccount(){
+           $data['infos'] = $this->gamemodel->getPlayers();
+           $data['erreur'] = "Account already existing";
+           $this->load->view('players', $data);
        }
        
        function delete($pseudo){

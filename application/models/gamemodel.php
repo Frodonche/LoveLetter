@@ -17,8 +17,11 @@ class Gamemodel extends CI_Model{
         }
         
         function register($pseudo, $psw){
-            $query = $this->db->query('INSERT INTO players VALUES ("'.$pseudo.'","'.$psw.'", 0)');
-            return $query;
+            $cpt = $this->db->query('SELECT * FROM players WHERE pseudo="'.$pseudo.'"');
+            if($cpt->result() == null){
+                $query = $this->db->query('INSERT INTO players VALUES ("'.$pseudo.'","'.$psw.'", 0)');
+                return $query;
+            }
         }
         
         function delete($pseudo){

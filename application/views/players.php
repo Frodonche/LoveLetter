@@ -20,6 +20,8 @@
                         <center><input type ='submit' value="Add"/></center>
                 
             </form>
+            <?php if(isset($erreur)){ echo "<b><font color='red'>".$erreur."</font></b>";} ?>
+
         </center>
         
         <table align = center>
@@ -57,8 +59,7 @@
                 ?>
         </table>
         
-        <?php if(isset($onche)){ echo $onche;} ?>
-        
+                
     </body>
     
     <footer>
