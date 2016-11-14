@@ -5,7 +5,7 @@
     </head>
     
     <body>
-        <table align="center" id="jaune">
+        <table align="center" id="jaune" >
             <caption id="jaune"> Cards </caption>
     
                 <?php 

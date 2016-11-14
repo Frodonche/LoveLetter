@@ -24,7 +24,7 @@
 
         </center>
         
-        <table align = center>
+        <table align = center background='http://localhost/LoveLetter/upload/fond_tableau.png'>
             <caption> Player list </caption>
             <tr>
                 <th> Pseudo </th>
