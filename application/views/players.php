@@ -13,8 +13,7 @@
                 window.location.reload(true);
            }
        </script>
-        
-        
+       
         <title>Players</title>
     </head>
     <body>
