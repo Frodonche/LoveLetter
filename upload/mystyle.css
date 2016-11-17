@@ -66,3 +66,28 @@ caption{
     font-weight: bold;
     font-style: italic;
 }
+
+#box1 {
+	position:absolute;
+	top: 75px;
+	left: 75px;
+}
+
+#box2 {
+	position:absolute;
+	top: 75px;
+	right: 75px;
+}
+
+#box3 {
+	position:absolute;
+	bottom: 75px;
+	right: 75px;
+}
+
+#box4 {
+	position:absolute;
+	bottom: 75px;
+	left: 75px;
+}
+
