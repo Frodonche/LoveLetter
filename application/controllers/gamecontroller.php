@@ -45,5 +45,6 @@ class GameController extends CI_Controller{
            }
            $this->players();
        }
+ 
 }
 ?>

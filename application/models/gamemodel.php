@@ -28,4 +28,9 @@ class Gamemodel extends CI_Model{
             $query = $this->db->query('DELETE FROM players WHERE pseudo = "'.$pseudo.'"');
             return $query;
         }
+        
+        function getMessages(){
+            $query = $this->db->query('SELECT * FROM minichat ORDER BY id DESC LIMIT 0,10');
+            return $query;
+        }
 }
