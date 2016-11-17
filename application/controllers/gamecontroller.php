@@ -49,5 +49,6 @@ class GameController extends CI_Controller{
 	   function plateau(){//test de la vue plateau
 		   $this->load->view('plateau');
 	   }
+
 }
 ?>

@@ -4,6 +4,8 @@ body{
     background-size: 100%;
 }
 
+
+
 table{
     border-style:solid; 
     border-width: 2px;
@@ -67,6 +69,7 @@ caption{
     font-style: italic;
 }
 
+
 #box1 {
 	position:absolute;
 	top: 75px;
@@ -89,5 +92,9 @@ caption{
 	position:absolute;
 	bottom: 75px;
 	left: 75px;
+}
+
+#chat{
+    background-image:url(http://localhost/LoveLetter/upload/fond_tableau.png);
 }
 

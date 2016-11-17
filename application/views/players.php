@@ -1,11 +1,24 @@
 <hmtl>
     <head>
         <link rel="stylesheet" type="text/css" href="http://localhost/LoveLetter/upload/mystyle.css">
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+        </script>
+        <script>
+            $(document).ready(function(){
+            setInterval(function(){cache_clear()},5000);
+            });
+            function cache_clear()
+           {
+                window.location.reload(true);
+           }
+       </script>
+       
         <title>Players</title>
     </head>
     <body>
         <h1> Manage accounts </h1>
-        
+
         <center><form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/register'>
                 <table>
                     <tr id="jaune">
