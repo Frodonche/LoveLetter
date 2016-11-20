@@ -34,8 +34,8 @@ class Gamemodel extends CI_Model{
             return $query;
         }
 		
-		function getLobby($id_lobby){
-			$query = $this->db->query('SELECT * FROM lobby WHERE id = "'.$id_lobby.'"');
-			return $query;
-		}
+        function getLobby($id_lobby){
+                $query = $this->db->query('SELECT * FROM lobby WHERE id = "'.$id_lobby.'"');
+                return $query;
+        }
 }

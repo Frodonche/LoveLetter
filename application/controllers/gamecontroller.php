@@ -23,9 +23,9 @@ class GameController extends CI_Controller{
        function register(){
            if ($_POST['pseudo']!='' && $_POST['psw']!=''){
                // $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
-                $onche = $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
+                $test = $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
                 
-                if($onche != null)
+                if($test != null)
                     $this->players();
                 else
                     $this->erreurAccount();
@@ -46,10 +46,10 @@ class GameController extends CI_Controller{
            $this->players();
        }
 	   
-	   function plateau($id_lobby){//test de la vue plateau
-			$data['lobby'] = $this->gamemodel->getLobby($id_lobby);
-			$this->load->view('plateau', $data);
-	   }
+        function plateau($id_lobby){//test de la vue plateau
+                     $data['lobby'] = $this->gamemodel->getLobby($id_lobby);
+                     $this->load->view('plateau', $data);
+        }
 
 }
 ?>

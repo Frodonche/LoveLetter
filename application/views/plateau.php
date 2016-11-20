@@ -6,7 +6,6 @@
 </head>
 
 <body>
-	<div id="box3">
 	<?php if(isset($lobby)){
                     foreach($lobby->result() as $row){
 						
@@ -28,16 +27,18 @@
         </form>
 		</table>
 	</div>
-	
+	<?php if (!empty($p1)){ ?>
 	<div id='box1'>
-		<table>
+		<table align="left, top">
 			<tr> <td>1</td> <td>1</td> <td>1</td> <td>1</td> </tr>
 			<tr> <td colspan='2'>1</td> <td colspan='2'>1</td> </tr>
 			<tr> <td>1</td> <td colspan='3'><?php echo $p1 ?></td> </tr>
 
 		</table>
-	</div>
-	
+        </div>
+        <?php }?>   
+            
+	<?php if (!empty($p2)){ ?>
 	<div id='box2'>
 		<table>
 			<tr> <td>1</td> <td>1</td> <td>1</td> <td>1</td> </tr>
@@ -46,8 +47,9 @@
 
 		</table>
 	</div>
+        <?php }?>
 	
-	<?php if (!empty($p3)): ?>
+	<?php if (!empty($p3)){ ?>
 		<div id='box3'>
 		<table>
 			<tr> <td>1</td> <td>1</td> <td>1</td> <td>1</td> </tr>
@@ -56,11 +58,10 @@
 
 		</table>
 	</div>
-					<?php
-					endif;?>
+        <?php }?>
 					
 					
-	<?php if (!empty($p4)): ?>
+	<?php if (!empty($p4)){ ?>
 	<div id='box4'>
 		<table>
 			<tr> <td>1</td> <td>1</td> <td>1</td> <td>1</td> </tr>
@@ -70,9 +71,8 @@
 		</table>
 	</div>
 	
-	<?php
-	endif;
-	}
+        <?php }
+        }
 	?>
 	
 </body>
