@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<div id="box">
+	<div id="box3">
 		<table>
 			<tr> <td>1</td> <td>1</td> <td>1</td> <td>1</td> </tr>
 			<tr> <td colspan='2'>1</td> <td colspan='2'>1</td> </tr>
