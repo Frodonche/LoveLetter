@@ -33,4 +33,9 @@ class Gamemodel extends CI_Model{
             $query = $this->db->query('SELECT * FROM minichat ORDER BY id DESC LIMIT 0,10');
             return $query;
         }
+		
+		function getLobby($id_lobby){
+			$query = $this->db->query('SELECT * FROM lobby WHERE id = "'.$id_lobby.'"');
+			return $query;
+		}
 }

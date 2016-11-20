@@ -46,8 +46,9 @@ class GameController extends CI_Controller{
            $this->players();
        }
 	   
-	   function plateau(){//test de la vue plateau
-		   $this->load->view('plateau');
+	   function plateau($id_lobby){//test de la vue plateau
+			$data['lobby'] = $this->gamemodel->getLobby($id_lobby);
+			$this->load->view('plateau', $data);
 	   }
 
 }

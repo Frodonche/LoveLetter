@@ -94,6 +94,12 @@ caption{
 	left: 75px;
 }
 
+#boxmenu {
+	position:absolute;
+	bottom: 47%;
+	left: 45%;
+}
+
 #chat{
     background-image:url(http://localhost/LoveLetter/upload/fond_tableau.png);
 }
