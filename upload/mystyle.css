@@ -72,32 +72,38 @@ caption{
 
 #box1 {
 	position:absolute;
-	top: 75px;
-	left: 75px;
+	top: 10px;
+	left: 10x;
 }
 
 #box2 {
 	position:absolute;
-	top: 75px;
-	right: 75px;
+	top: 10px;
+	right: 10px;
 }
 
 #box3 {
 	position:absolute;
-	bottom: 75px;
-	right: 75px;
+	bottom: 10px;
+	right: 10px;
 }
 
 #box4 {
 	position:absolute;
-	bottom: 75px;
-	left: 75px;
+	bottom: 10px;
+	left: 10px;
 }
 
 #boxmenu {
 	position:absolute;
 	bottom: 47%;
-	left: 45%;
+	left: 40%;
+}
+
+#boxquit {
+    position:absolute;
+    bottom: 1%;
+    left: 45%;
 }
 
 #chat{
