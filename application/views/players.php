@@ -2,7 +2,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="http://localhost/LoveLetter/upload/mystyle.css">
         
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+       <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
         </script>
         <script>
             $(document).ready(function(){
@@ -10,8 +10,19 @@
             });
             function cache_clear()
            {
-                window.location.reload(true);
+                window.location.href='http://localhost/LoveLetter/index.php/gamecontroller/players'
            }
+       </script> -->
+       
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+        </script>
+        <script>
+            $(document).ready(function () {
+                setInterval(function () {
+                    $('#tab').load(document.URL +  ' #tab');
+                }, 1000);
+            });
+       
        </script>
        
         <title>Players</title>
@@ -37,7 +48,7 @@
 
         </center>
         
-        <table align = center background='http://localhost/LoveLetter/upload/fond_tableau.png'>
+        <table align = center background='http://localhost/LoveLetter/upload/fond_tableau.png' id="tab">
             <caption> Player list </caption>
             <tr>
                 <th> Pseudo </th>
