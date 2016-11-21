@@ -22,7 +22,7 @@
 					}
                         ?>
         
-	<div id='boxmenu2'>
+	<div class='boxmenu2'>
 	
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
                     <tr>
@@ -37,21 +37,23 @@
 		</table>
 	</div>
 	<?php if (!empty($p1)){ ?>
-	<div id='box21'>
+	<div class='box21'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
                         </tr>
 			<tr> 
-                            <td colspan='2'><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td colspan='2'><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td>
-                            <td colspan='3'><?php echo $p1 ?></td> 
+                            <td colspan='5'><?php echo $p1 ?></td> 
                         </tr>
 
 		</table>
@@ -59,21 +61,23 @@
         <?php }?>   
             
 	<?php if (!empty($p2)){ ?>
-	<div id='box22'>
+	<div class='box22'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
                         </tr>
 			<tr> 
-                            <td colspan='2'><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
-                            <td colspan='2'><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td> 
-                            <td colspan='3'><?php echo $p2 ?></td> 
+                            <td colspan='5'><?php echo $p2 ?></td> 
                         </tr>
 
 		</table>

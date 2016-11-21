@@ -70,77 +70,79 @@ caption{
 }
 
 
-#box41 {
+.box41 {
 	position:absolute;
 	top: 10px;
 	left: 10x;
 }
 
-#box42 {
+.box42 {
 	position:absolute;
 	top: 10px;
 	right: 10px;
 }
 
-#box43 {
+.box43 {
 	position:absolute;
 	bottom: 10px;
 	right: 10px;
 }
 
-#box44 {
+.box44 {
 	position:absolute;
 	bottom: 10px;
 	left: 10px;
 }
 
-#box21 {
+.box21 {
     position:absolute;
     left:10px;
+    top:10%;
 }
 
-#box22 {
+.box22 {
     position:absolute;
     right:10px;
+    top:10%;
 }
 
-#box31{
+.box31{
     position:absolute;
     left:10px;
     top:10px;
 }
 
-#box32{
+.box32{
     position:absolute;
     right:10px;
     top:10px;
 }
 
-#box33{
+.box33{
     position:absolute;
-    left:36.5%;
-    top:10px;
+    right:10px;
+    bottom:10px;
 }
 
-#boxmenu2 {
+.boxmenu2 {
 	position:absolute;
 	top:1%;
 	left: 38.5%;
 }
    
-#boxmenu3 {
+.boxmenu3 {
 	position:absolute;
 	bottom:15%;
 	left: 5%;
 }
 
-#boxmenu4 {
+.boxmenu4 {
 	position:absolute;
 	bottom: 75%;
 	left: 40%;
 }
 
-#boxchat {
+.boxchat {
         position:absolute;
         bottom: 47%;
         left: 40%
