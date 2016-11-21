@@ -30,7 +30,7 @@
 			<td>Message</td>
                     </tr>
                     <tr>
-			<td><img src='http://localhost/LoveLetter/upload/backCard.png' height='190' width='140' class='img-responsible'/></td>
+			<td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
 			<td>C'est au tour de [pseudo]</td>
                     </tr>
 		
@@ -40,16 +40,16 @@
 	<div class='box21'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
                         </tr>
 			<tr> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td>
@@ -58,22 +58,44 @@
 
 		</table>
         </div>
-        <?php }?>   
-            
+        <?php }else{?>   
+            <div class='box21'>
+		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
+			<tr> 
+                            <td class='card2'></td> 
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                        </tr>
+			<tr> 
+                            <td colspan='3' class='card2'></td> 
+                            <td colspan='3' class='card2'></td> 
+                        </tr>
+			<tr> 
+                            <td>[Score]</td>
+                            <td colspan='5'>[Pseudo Joueur 1]</td> 
+                        </tr>
+
+		</table>
+            </div>
+        <?php } ?>
+    
 	<?php if (!empty($p2)){ ?>
 	<div class='box22'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
                         </tr>
 			<tr> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td> 
@@ -82,13 +104,37 @@
 
 		</table>
 	</div>
+    
+        <?php }else{ ?>   
+            <div class='box22'>
+		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
+			<tr> 
+                            <td class='card2'></td> 
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                            <td class='card2'></td>
+                        </tr>
+			<tr> 
+                            <td colspan='3' class='card2'></td> 
+                            <td colspan='3' class='card2'></td> 
+                        </tr>
+			<tr> 
+                            <td>[Score]</td>
+                            <td colspan='5'>[Pseudo Joueur 2]</td> 
+                        </tr>
+
+		</table>
+            </div>
+        <?php } ?>
+    
         <div id='boxquit'>
             <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/rooms'>	
                 <td><input type ='submit' value="Quitter le lobby"/></td>
             </form>
         </div>
-        <?php }
-        }?>
+        <?php }?>
 		
 </body>
 
