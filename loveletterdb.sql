@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 17 Novembre 2016 à 15:49
+-- Généré le :  Lun 21 Novembre 2016 à 05:42
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -49,6 +49,69 @@ INSERT INTO `cards` (`id`, `name`, `path`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `cards_stack`
+--
+
+CREATE TABLE `cards_stack` (
+  `id_lobby` int(11) NOT NULL,
+  `id_carte` int(11) NOT NULL,
+  `quantité` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cartesmain`
+--
+
+CREATE TABLE `cartesmain` (
+  `pseudo` varchar(50) NOT NULL,
+  `premiere` int(11) DEFAULT NULL,
+  `deuxième` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cartespos`
+--
+
+CREATE TABLE `cartespos` (
+  `pseudo` varchar(50) NOT NULL,
+  `premiere` int(11) DEFAULT NULL,
+  `deuxieme` int(11) DEFAULT NULL,
+  `troisieme` int(11) DEFAULT NULL,
+  `quatrieme` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `lobby`
+--
+
+CREATE TABLE `lobby` (
+  `id` int(11) NOT NULL,
+  `player1` varchar(50) DEFAULT NULL,
+  `player2` varchar(50) DEFAULT NULL,
+  `player3` varchar(50) DEFAULT NULL,
+  `player4` varchar(50) DEFAULT NULL,
+  `aquiletour` int(11) NOT NULL,
+  `ended` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `lobby`
+--
+
+INSERT INTO `lobby` (`id`, `player1`, `player2`, `player3`, `player4`, `aquiletour`, `ended`) VALUES
+(20, 'titi', 'toto', NULL, NULL, 1, 1),
+(30, 'tata', 'tete', 'tyty', NULL, 1, 0),
+(40, 'Premier', 'Deuxieme', 'Troisieme', 'Quatrieme', 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `players`
 --
 
@@ -63,18 +126,80 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`pseudo`, `password`, `online`) VALUES
-('Deuxieme', 'sdqqdzzqd', 0),
-('Premier', 'qddqzqd', 0);
+('Deuxieme', 'mdp2', 0),
+('Premier', 'mdp1', 0),
+('Quatrieme', 'onche', 0),
+('tata', 'tata', 0),
+('tete', 'tete', 0),
+('titi', 'titi', 0),
+('toto', 'toto', 0),
+('Troisieme', 'onche', 0),
+('tutu', 'tutu', 0),
+('tyty', 'tyty', 0);
 
 --
 -- Index pour les tables exportées
 --
 
 --
+-- Index pour la table `cards_stack`
+--
+ALTER TABLE `cards_stack`
+  ADD PRIMARY KEY (`id_lobby`,`id_carte`),
+  ADD KEY `id_carte` (`id_carte`);
+
+--
+-- Index pour la table `cartesmain`
+--
+ALTER TABLE `cartesmain`
+  ADD PRIMARY KEY (`pseudo`);
+
+--
+-- Index pour la table `cartespos`
+--
+ALTER TABLE `cartespos`
+  ADD PRIMARY KEY (`pseudo`);
+
+--
+-- Index pour la table `lobby`
+--
+ALTER TABLE `lobby`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `player1` (`player1`),
+  ADD KEY `player2` (`player2`),
+  ADD KEY `player3` (`player3`),
+  ADD KEY `player4` (`player4`);
+
+--
 -- Index pour la table `players`
 --
 ALTER TABLE `players`
   ADD PRIMARY KEY (`pseudo`);
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `cartesmain`
+--
+ALTER TABLE `cartesmain`
+  ADD CONSTRAINT `cartesmain_ibfk_1` FOREIGN KEY (`pseudo`) REFERENCES `players` (`pseudo`);
+
+--
+-- Contraintes pour la table `cartespos`
+--
+ALTER TABLE `cartespos`
+  ADD CONSTRAINT `cartespos_ibfk_1` FOREIGN KEY (`pseudo`) REFERENCES `players` (`pseudo`);
+
+--
+-- Contraintes pour la table `lobby`
+--
+ALTER TABLE `lobby`
+  ADD CONSTRAINT `lobby_ibfk_1` FOREIGN KEY (`player1`) REFERENCES `players` (`pseudo`),
+  ADD CONSTRAINT `lobby_ibfk_2` FOREIGN KEY (`player2`) REFERENCES `players` (`pseudo`),
+  ADD CONSTRAINT `lobby_ibfk_3` FOREIGN KEY (`player3`) REFERENCES `players` (`pseudo`),
+  ADD CONSTRAINT `lobby_ibfk_4` FOREIGN KEY (`player4`) REFERENCES `players` (`pseudo`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
