@@ -70,43 +70,100 @@ caption{
 }
 
 
-#box1 {
+#box41 {
 	position:absolute;
 	top: 10px;
 	left: 10x;
 }
 
-#box2 {
+#box42 {
 	position:absolute;
 	top: 10px;
 	right: 10px;
 }
 
-#box3 {
+#box43 {
 	position:absolute;
 	bottom: 10px;
 	right: 10px;
 }
 
-#box4 {
+#box44 {
 	position:absolute;
 	bottom: 10px;
 	left: 10px;
 }
 
-#boxmenu {
+#box21 {
+    position:absolute;
+    left:10px;
+}
+
+#box22 {
+    position:absolute;
+    right:10px;
+}
+
+#box31{
+    position:absolute;
+    left:10px;
+    top:10px;
+}
+
+#box32{
+    position:absolute;
+    right:10px;
+    top:10px;
+}
+
+#box33{
+    position:absolute;
+    left:36.5%;
+    top:10px;
+}
+
+#boxmenu2 {
 	position:absolute;
-	bottom: 47%;
+	top:1%;
+	left: 38.5%;
+}
+   
+#boxmenu3 {
+	position:absolute;
+	bottom:15%;
+	left: 5%;
+}
+
+#boxmenu4 {
+	position:absolute;
+	bottom: 75%;
 	left: 40%;
+}
+
+#boxchat {
+        position:absolute;
+        bottom: 47%;
+        left: 40%
 }
 
 #boxquit {
     position:absolute;
     bottom: 1%;
-    left: 45%;
+    left: 47%;
 }
 
 #chat{
     background-image:url(http://localhost/LoveLetter/upload/fond_tableau.png);
 }
 
+#boxdeco{
+    position:absolute;
+    top: 1px;
+    right: 1px;
+}
+
+#boxid{
+    position:absolute;
+    top: 0px;
+    left: 1px;
+}

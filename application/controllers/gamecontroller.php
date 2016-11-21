@@ -7,8 +7,12 @@ class GameController extends CI_Controller{
 	}
 	
 	function index(){
-		$this->load->view('game');
+		$this->load->view('login');
 	}
+        
+        function game(){
+            $this->load->view('game');
+        }
         
         function cartes(){
             $data['array'] = $this->gamemodel->getCartes();
@@ -25,8 +29,11 @@ class GameController extends CI_Controller{
                // $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
                 $test = $this->gamemodel->register($_POST['pseudo'], $_POST['psw']);
                 
-                if($test != null)
-                    $this->players();
+                if($test != null){
+                    $data['pseudo'] = $_POST['pseudo'];
+                    $data['psw']  = $_POST['psw'];
+                    $this->load->view('createsession', $data);
+                }
                 else
                     $this->erreurAccount();
            }
@@ -35,7 +42,12 @@ class GameController extends CI_Controller{
        function erreurAccount(){
            $data['infos'] = $this->gamemodel->getPlayers();
            $data['erreur'] = "Account already existing";
-           $this->load->view('players', $data);
+           $this->load->view('login', $data);
+       }
+       
+       function erreurLogin(){
+           $data['erreurLogin'] = "Erreur login";
+           $this->load->view('login', $data);
        }
        
        function delete($pseudo){
@@ -48,8 +60,38 @@ class GameController extends CI_Controller{
 	   
         function plateau($id_lobby){//test de la vue plateau
                      $data['lobby'] = $this->gamemodel->getLobby($id_lobby);
-                     $this->load->view('plateau', $data);
+                     if(20 <= $id_lobby && $id_lobby < 30){ //si c'est un lobby à 2
+                         $this->load->view('plateau2', $data);
+                     }
+                     if(30 <= $id_lobby && $id_lobby < 40){ //si c'est un lobby à 3
+                         $this->load->view('plateau3', $data);
+                     }
+                     if(40 <= $id_lobby && $id_lobby < 50){ //si c'est un lobby à 4
+                         $this->load->view('plateau4', $data);
+                     }
+                     
         }
 
+        function rooms(){
+            $data['lobbies'] = $this->gamemodel->getLobby(0);
+            $this->load->view('rooms', $data);
+        }
+        
+        function logcontrol(){
+            if ($_POST['pseudo']!='' && $_POST['psw']!=''){
+                if($this->gamemodel->accountExist($_POST['pseudo'], $_POST['psw'])){
+                    $data['pseudo'] = $_POST['pseudo'];
+                    $data['psw']  = $_POST['psw'];
+                    $this->load->view('createsession', $data);
+                }
+                else{
+                    $this->erreurLogin();
+                }
+            }
+        }
+        
+        function deconnexion(){
+            $this->load->view('deconnexion');
+        }
 }
 ?>

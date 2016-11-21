@@ -35,7 +35,17 @@ class Gamemodel extends CI_Model{
         }
 		
         function getLobby($id_lobby){
-                $query = $this->db->query('SELECT * FROM lobby WHERE id = "'.$id_lobby.'"');
+                if($id_lobby > 0){
+                    $query = $this->db->query('SELECT * FROM lobby WHERE id = "'.$id_lobby.'"');
+                }
+                else{ //comme ça on peut mettre 0 ou moins si on veut tout afficher
+                    $query = $this->db->query('SELECT * FROM lobby'); 
+                }
                 return $query;
+        }
+        
+        function accountExist($pseudo, $mdp){
+            $cpt = $this->db->query('SELECT * FROM players WHERE pseudo="'.$pseudo.'" AND password="'.$mdp.'"');
+            return ($cpt->result() != null);
         }
 }

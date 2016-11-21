@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user'])){ //if login in session is not set
+        header("Location: http://localhost/LoveLetter/index.php/gamecontroller/");
+    }
+?>
 <html>
 	<head>
             <link rel="stylesheet" type="text/css" href="http://localhost/LoveLetter/upload/mystyle.css">
@@ -6,11 +12,11 @@
 	
 	<body>
             <h1> LoveLetter</h1>
-            <center><a href="http://localhost/LoveLetter/index.php/gamecontroller/cartes"><img src="http://localhost/LoveLetter/upload/backCard.png" height="250" width="175" class="img-responsible"/></a></center>
+            <center><a href="http://localhost/LoveLetter/index.php/gamecontroller/rooms"><img src="http://localhost/LoveLetter/upload/backCard.png" height="250" width="175" class="img-responsible"/></a></center>
         
             <center> <h2>How to Play</h2>
 
-            <p>There are eight different types of cards, shown below. Each card has a number, and an effect when played.</p>
+            <p>There are eight different types of cards show below. Each card has a number, and an effect when played.</p>
 
             <p>Each player holds one card in their hand. When it's your turn, you draw a card, then play a card. </p>
 
@@ -22,12 +28,24 @@
             
             
             
-            <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/players'>
-                    <h2> Accounts </h2>
-                    <input type ='submit' value="Go To"/>
+            <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/cartes'>
+                    <h2> Cards </h2>
+                    
+                    <input type ='submit' value="Show me"/>
             </form>
             
             </center>
+            
+            <div id='boxdeco'>
+                <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/deconnexion'>
+                        <input type ='submit' value="Disconnect"/>
+                </form>
+            </div>
+            
+            <div id='boxid'>
+                <p id='jaune'> Logged as <?php echo $_SESSION['user']; ?> </p>
+            </div>
+            
         </body>
         
 </html>

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user'])){ //if login in session is not set
+        header("Location: http://localhost/LoveLetter/index.php/gamecontroller/");
+    }
+?>
+
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="http://localhost/LoveLetter/upload/mystyle.css">
@@ -42,7 +49,7 @@
 
 
 <footer>
-        <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/'>
+        <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/game'>
                     <center><input type ='submit' value="Retour au menu"/></center>
         </form>    
 </footer>

@@ -27,7 +27,7 @@
                     </tr>
                     <tr id="jaune">
                         <td><input type='text' name='pseudo' required/></td>
-                        <td><input type='text' name='psw' required/></td>>  
+                        <td><input type='text' name='psw' required/></td>  
                     </tr>
                 </table>    
                         <center><input type ='submit' value="Add"/></center>
