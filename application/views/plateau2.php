@@ -67,46 +67,6 @@
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 	 
                             <?php if(isset($playersCardsPos1)){ //si le joueur a posé des cartes?>       
-                                <?php if($p1 == $_SESSION['user']){ ?> <!-- Si c'est notre espace -->
-                                    <td  class='card2'><?php foreach($playersCardsPos1->result() as $temp){ echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->premiere).'" class="card2" /></a>'; ?></td> <!-- si le joueur a des cartes de posées, il y en a au moins une => pas de test-->
-
-                                        <?php if(!empty($temp->deuxieme)){ ?> <!-- Si on a une deuxième carte --> 
-                                            <td class='card2'><?php echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->deuxieme).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->troisieme)){ ?> <!-- Si on a une troisieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->troisieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->quatrieme)){ ?> <!-- Si on a une quatrieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->quatrieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->cinquieme)){ ?> <!-- Si on a une cinquieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->cinquieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->sixieme)){ ?> <!-- Si on a une sixieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->sixieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                    <?php }?>   
-                                <?php }else{ ?> <!-- Si c'est pas notre table -->
                                     <td  class='card2'><?php foreach($playersCardsPos1->result() as $temp){ echo '<img src="'.getCardPath($temp->premiere).'" class="card2" />'; ?></td> <!-- si le joueur a des cartes de posées, il y en a au moins une => pas de test-->
 
                                         <?php if(!empty($temp->deuxieme)){ ?> <!-- Si on a une deuxième carte --> 
@@ -144,7 +104,7 @@
                                             <td class='card2'></td> <!-- Sinon on affiche une case vide -->
                                         <?php } ?>   
 
-                                    <?php }?>   
+                                      
                                 <?php } ?>      
                             <?php }else{ //si le joueur n'a pas posé de cartes'?>
                                 <td class='card2'></td><td class='card2'></td><td class='card2'></td><td class='card2'></td><td class='card2'></td><td class='card2'></td>
@@ -226,46 +186,6 @@
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 	 
                             <?php if(isset($playersCardsPos2)){ //si le joueur a posé des cartes?>       
-                                <?php if($p1 == $_SESSION['user']){ ?> <!-- Si c'est notre espace -->
-                                    <td  class='card2'><?php foreach($playersCardsPos2->result() as $temp){ echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->premiere).'" class="card2" /></a>'; ?></td> <!-- si le joueur a des cartes de posées, il y en a au moins une => pas de test-->
-
-                                        <?php if(!empty($temp->deuxieme)){ ?> <!-- Si on a une deuxième carte --> 
-                                            <td class='card2'><?php echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->deuxieme).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->troisieme)){ ?> <!-- Si on a une troisieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->troisieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->quatrieme)){ ?> <!-- Si on a une quatrieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->quatrieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->cinquieme)){ ?> <!-- Si on a une cinquieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->cinquieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                        <?php if(!empty($temp->sixieme)){ ?> <!-- Si on a une sixieme carte --> 
-                                            <td class='card2'><?php echo '<img src="'.getCardPath($temp->sixieme).'" class="card2" />'; ?></td>  <!-- On l'affiche -->
-
-                                        <?php }else{ ?>
-                                            <td class='card2'></td> <!-- Sinon on affiche une case vide -->
-                                        <?php } ?>   
-
-                                    <?php }?>   
-                                <?php }else{ ?> <!-- Si c'est pas notre table -->
                                     <td  class='card2'><?php foreach($playersCardsPos2->result() as $temp){ echo '<img src="'.getCardPath($temp->premiere).'" class="card2" />'; ?></td> <!-- si le joueur a des cartes de posées, il y en a au moins une => pas de test-->
 
                                         <?php if(!empty($temp->deuxieme)){ ?> <!-- Si on a une deuxième carte --> 
@@ -303,8 +223,7 @@
                                             <td class='card2'></td> <!-- Sinon on affiche une case vide -->
                                         <?php } ?>   
 
-                                    <?php }?>   
-                                <?php } ?>      
+                                    <?php }?>        
                             <?php }else{ //si le joueur n'a pas posé de cartes'?>
                                 <td class='card2'></td><td class='card2'></td><td class='card2'></td><td class='card2'></td><td class='card2'></td><td class='card2'></td>
                             <?php } ?>
