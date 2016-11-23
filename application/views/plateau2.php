@@ -35,6 +35,9 @@
 </head>
 
 <body>
+        <div id='boxid'>
+                <p id='jaune'> Logged as <?php echo $_SESSION['user']; ?> </p>
+        </div>
 	<?php if(isset($lobby)){
                     foreach($lobby->result() as $row){
 						
