@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 21 Novembre 2016 à 05:42
+-- Généré le :  Mer 23 Novembre 2016 à 05:05
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -67,8 +67,16 @@ CREATE TABLE `cards_stack` (
 CREATE TABLE `cartesmain` (
   `pseudo` varchar(50) NOT NULL,
   `premiere` int(11) DEFAULT NULL,
-  `deuxième` int(11) DEFAULT NULL
+  `deuxieme` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cartesmain`
+--
+
+INSERT INTO `cartesmain` (`pseudo`, `premiere`, `deuxieme`) VALUES
+('titi', 8, 4),
+('toto', 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -81,8 +89,18 @@ CREATE TABLE `cartespos` (
   `premiere` int(11) DEFAULT NULL,
   `deuxieme` int(11) DEFAULT NULL,
   `troisieme` int(11) DEFAULT NULL,
-  `quatrieme` int(11) DEFAULT NULL
+  `quatrieme` int(11) DEFAULT NULL,
+  `cinquieme` int(11) DEFAULT NULL,
+  `sixieme` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cartespos`
+--
+
+INSERT INTO `cartespos` (`pseudo`, `premiere`, `deuxieme`, `troisieme`, `quatrieme`, `cinquieme`, `sixieme`) VALUES
+('titi', 1, 4, 5, 6, NULL, NULL),
+('toto', 1, 2, 3, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

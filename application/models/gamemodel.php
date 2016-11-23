@@ -11,6 +11,8 @@ class Gamemodel extends CI_Model{
              return $query;
         }
      
+        
+        
         function getPlayers(){
             $query = $this->db->query('SELECT pseudo, password, online FROM players');
             return $query;
@@ -47,5 +49,58 @@ class Gamemodel extends CI_Model{
         function accountExist($pseudo, $mdp){
             $cpt = $this->db->query('SELECT * FROM players WHERE pseudo="'.$pseudo.'" AND password="'.$mdp.'"');
             return ($cpt->result() != null);
+        }
+        
+        function getCardsPos($id_lobby, $numPlayer){
+            $query = $this->getLobby($id_lobby);
+            if($numPlayer == 1){
+                foreach($query->result() as $temp){
+                    $player = $temp->player1;
+                }
+            }
+            if($numPlayer == 2){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player2;
+                }
+            }
+            if($numPlayer == 3){
+                   foreach($query->result() as $temp){
+                    $player = $temp->player3;
+                }
+            }
+            if($numPlayer == 4){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player4;
+                } 
+            }
+  
+            $cards = $this->db->query('SELECT * FROM cartespos WHERE pseudo="'.$player.'"');
+            return $cards;
+        }
+        
+        function getCardsMain($id_lobby, $numPlayer){
+            $query = $this->getLobby($id_lobby);
+            if($numPlayer == 1){
+                foreach($query->result() as $temp){
+                    $player = $temp->player1;
+                }
+            }
+            if($numPlayer == 2){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player2;
+                }
+            }
+            if($numPlayer == 3){
+                   foreach($query->result() as $temp){
+                    $player = $temp->player3;
+                }
+            }
+            if($numPlayer == 4){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player4;
+                } 
+            }
+            $cards = $this->db->query('SELECT * FROM cartesmain WHERE pseudo="'.$player.'"');
+            return $cards;
         }
 }
