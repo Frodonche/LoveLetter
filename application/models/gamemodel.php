@@ -67,11 +67,13 @@ class Gamemodel extends CI_Model{
 		function piocherCarte($pseudo){
 			$carte = rand(1,8);
 			$query = $this->getPlayersLobby($pseudo);
+                        $idlobby = 0;
 			foreach($query->result() as $lobby){
 				$idlobby = $lobby->id_lobby;
 			}
 			
 			$query = $this->getPioche($idlobby);
+                        $qte = 0;
 			foreach($query->result() as $pioche){
 				if($pioche->id_carte==$carte){
 					$qte = $pioche->quantite ;

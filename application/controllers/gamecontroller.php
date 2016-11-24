@@ -99,6 +99,11 @@ class GameController extends CI_Controller{
                      
         }
 
+        function piocherCarte(){
+            $this->gamemodel->piocherCarte($_POST['session']);
+            $this->plateau($_POST['lobby']);
+        }
+        
         function rooms(){
             $data['lobbies'] = $this->gamemodel->getLobby(0);
             $this->load->view('rooms', $data);
