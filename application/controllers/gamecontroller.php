@@ -120,5 +120,6 @@ class GameController extends CI_Controller{
         function deconnexion(){
             $this->load->view('deconnexion');
         }
+		
 }
 ?>
