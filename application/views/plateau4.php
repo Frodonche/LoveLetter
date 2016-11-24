@@ -36,7 +36,7 @@
 			<td>Message</td>
                     </tr>
                     <tr>
-			<td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+			<td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td>
 			<td>C'est au tour de [pseudo]</td>
                     </tr>
 		
@@ -46,16 +46,16 @@
 	<div class='box41'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
                         </tr>
 			<tr> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td>
@@ -70,16 +70,16 @@
 	<div class='box42'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
                         </tr>
 			<tr> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td> 
@@ -94,16 +94,16 @@
 		<div class='box43'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
                         </tr>
 			<tr> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td> 
@@ -119,16 +119,16 @@
 	<div class='box44'>
 		<table background='http://localhost/LoveLetter/upload/fond_tableau.png'>
 			<tr> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td>
+                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class = 'card4'/></td> 
                         </tr>
 			<tr> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
-                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' height='145' width='90' class='img-responsible'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
+                            <td colspan='3'><img src='http://localhost/LoveLetter/upload/backCard.png' class='card4'/></td> 
                         </tr>
 			<tr> 
                             <td>1</td> 

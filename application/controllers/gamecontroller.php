@@ -61,12 +61,39 @@ class GameController extends CI_Controller{
         function plateau($id_lobby){//test de la vue plateau
                      $data['lobby'] = $this->gamemodel->getLobby($id_lobby);
                      if(20 <= $id_lobby && $id_lobby < 30){ //si c'est un lobby à 2
+                         $data['playersCardsPos1'] = $this->gamemodel->getCardsPos($id_lobby, 1);
+                         $data['playersCardsMain1'] = $this->gamemodel->getCardsMain($id_lobby, 1);
+                         
+                         $data['playersCardsPos2'] = $this->gamemodel->getCardsPos($id_lobby, 2);
+                         $data['playersCardsMain2'] = $this->gamemodel->getCardsMain($id_lobby, 2);
+                         
                          $this->load->view('plateau2', $data);
                      }
                      if(30 <= $id_lobby && $id_lobby < 40){ //si c'est un lobby à 3
+                         $data['playersCardsPos1'] = $this->gamemodel->getCardsPos($id_lobby, 1);
+                         $data['playersCardsMain1'] = $this->gamemodel->getCardsMain($id_lobby, 1);
+                         
+                         $data['playersCardsPos2'] = $this->gamemodel->getCardsPos($id_lobby, 2);
+                         $data['playersCardsMain2'] = $this->gamemodel->getCardsMain($id_lobby, 2);
+                         
+                         $data['playersCardsPos3'] = $this->gamemodel->getCardsPos($id_lobby, 3);
+                         $data['playersCardsMain3'] = $this->gamemodel->getCardsMain($id_lobby, 3);
+                         
                          $this->load->view('plateau3', $data);
                      }
                      if(40 <= $id_lobby && $id_lobby < 50){ //si c'est un lobby à 4
+                         $data['playersCardsPos1'] = $this->gamemodel->getCardsPos($id_lobby, 1); // les cartes posées de chaque joueur
+                         $data['playersCardsMain1'] = $this->gamemodel->getCardsMain($id_lobby, 1);// les cartes en main de chaque joueur
+                         
+                         $data['playersCardsPos2'] = $this->gamemodel->getCardsPos($id_lobby, 2);
+                         $data['playersCardsMain2'] = $this->gamemodel->getCardsMain($id_lobby, 2);
+                         
+                         $data['playersCardsPos3'] = $this->gamemodel->getCardsPos($id_lobby, 3);
+                         $data['playersCardsMain3'] = $this->gamemodel->getCardsMain($id_lobby, 3);
+                         
+                         $data['playersCardsPos4'] = $this->gamemodel->getCardsPos($id_lobby, 4);
+                         $data['playersCardsMain4'] = $this->gamemodel->getCardsMain($id_lobby, 4);
+                         
                          $this->load->view('plateau4', $data);
                      }
                      

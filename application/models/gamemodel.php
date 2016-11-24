@@ -11,6 +11,8 @@ class Gamemodel extends CI_Model{
              return $query;
         }
      
+        
+        
         function getPlayers(){
             $query = $this->db->query('SELECT pseudo, password, online FROM players');
             return $query;
@@ -48,6 +50,7 @@ class Gamemodel extends CI_Model{
             $cpt = $this->db->query('SELECT * FROM players WHERE pseudo="'.$pseudo.'" AND password="'.$mdp.'"');
             return ($cpt->result() != null);
         }
+
 		
 		function remplirPioche($id_lobby){
 			$query = $this->db->query('DELETE FROM cards_stack');
@@ -63,11 +66,136 @@ class Gamemodel extends CI_Model{
 		
 		function piocherCarte($pseudo){
 			$carte = rand(1,8);
-			$qte = $query(
-			'SELECT quantite
-			FROM cards_stack JOIN ON lobby USING (id) 
-			WHERE player1="'.$pseudo.'" OR player2="'.$pseudo.'" OR player3="'.$pseudo.'" OR player4="'.$pseudo.'"'
+			$query = $this->getPlayersLobby($pseudo);
+			foreach($query->result() as $lobby){
+				$idlobby = $lobby->id_lobby;
+			}
 			
-			);
+			$query = $this->getPioche($idlobby);
+			foreach($query->result() as $pioche){
+				if($pioche->id_carte==$carte){//
+					$qte = $pioche->quantit?;
+					if($qte <= 0):
+						piocherCarte($pseudo);
+					else:
+						$qte=$qte-1;//
+						$this->db->query('
+						UPDATE cards_stack 
+						SET quantit? = "'.$qte.'" 
+						WHERE id_lobby = "'.$idlobby.'"
+						AND id_carte = "'.$carte.'"
+						');
+						
+						$this->ajouterMain($pseudo ,$carte)
+					endif;
+				}
+			}
 		}
+		
+		function ajouterCarteMain($player, $cartenum){
+			$query = $this->db->query('
+			SELECT * FROM cartesmain
+			WHERE pseudo = "'.$player.'"
+			');
+			foreach($query->result() as $main){
+				
+			if(empty($main->premiere)):
+			
+				$this->db->query('
+				UPDATE cartesmain
+				SET premiere = "'.$cartenum.'"
+				WHERE pseudo = "'.$player.'"
+				');
+				
+			elseif(empty($main->deuxieme)):
+			
+				$this->db->query('
+				UPDATE cartesmain
+				SET deuxi?me = "'.$cartenum.'"
+				WHERE pseudo = "'.$player.'"
+				');
+			
+			endif;
+			}
+		}
+		
+		function getPlayersLobby($pseudo){
+			$lobby = $this->db->query(
+			'SELECT *
+			FROM cartesmain INNER JOIN lobby
+			ON (cartesmain.pseudo = lobby.player1) 
+			AND (cartesmain.pseudo = lobby.player2) 
+			AND (cartesmain.pseudo = lobby.player3)
+			AND (cartesmain.pseudo = lobby.player4)
+			WHERE player1="'.$pseudo.'" 
+			OR player2="'.$pseudo.'" 
+			OR player3="'.$pseudo.'" 
+			OR player4="'.$pseudo.'"'
+			);
+			
+			return $lobby;
+		}
+		
+		function getPioche($idlobby){
+			$query = $this->db->query('
+			SELECT * FROM cards_stack 
+			WHERE id_lobby = "'.$idlobby.'"
+			');
+			
+			return $query;
+		}
+        
+        function getCardsPos($id_lobby, $numPlayer){
+            $query = $this->getLobby($id_lobby);
+            if($numPlayer == 1){
+                foreach($query->result() as $temp){
+                    $player = $temp->player1;
+                }
+            }
+            if($numPlayer == 2){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player2;
+                }
+            }
+            if($numPlayer == 3){
+                   foreach($query->result() as $temp){
+                    $player = $temp->player3;
+                }
+            }
+            if($numPlayer == 4){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player4;
+                } 
+            }
+  
+            $cards = $this->db->query('SELECT * FROM cartespos WHERE pseudo="'.$player.'"');
+            return $cards;
+        }
+        
+        function getCardsMain($id_lobby, $numPlayer){
+            $query = $this->getLobby($id_lobby);
+            if($numPlayer == 1){
+                foreach($query->result() as $temp){
+                    $player = $temp->player1;
+                }
+            }
+            if($numPlayer == 2){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player2;
+                }
+            }
+            if($numPlayer == 3){
+                   foreach($query->result() as $temp){
+                    $player = $temp->player3;
+                }
+            }
+            if($numPlayer == 4){
+                    foreach($query->result() as $temp){
+                    $player = $temp->player4;
+                } 
+            }
+            $cards = $this->db->query('SELECT * FROM cartesmain WHERE pseudo="'.$player.'"');
+            return $cards;
+        }
+
 }

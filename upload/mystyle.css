@@ -127,7 +127,7 @@ caption{
 .boxmenu2 {
 	position:absolute;
 	top:1%;
-	left: 38.5%;
+	left: 40%;
 }
    
 .boxmenu3 {
@@ -140,6 +140,21 @@ caption{
 	position:absolute;
 	bottom: 75%;
 	left: 40%;
+}
+
+.card2{
+    height:145px; 
+    width:93px;
+}
+
+.card3{
+    height:160px; 
+    width:110px;
+}
+
+.card4{
+     height:145px; 
+     width:90px;
 }
 
 .boxchat {
