@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 23 Novembre 2016 à 05:05
+-- Généré le :  Jeu 24 Novembre 2016 à 16:06
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -75,7 +75,7 @@ CREATE TABLE `cartesmain` (
 --
 
 INSERT INTO `cartesmain` (`pseudo`, `premiere`, `deuxieme`) VALUES
-('titi', 8, 4),
+('titi', 8, 1),
 ('toto', 7, NULL);
 
 -- --------------------------------------------------------
