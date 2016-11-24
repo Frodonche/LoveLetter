@@ -67,7 +67,11 @@
                             <td>Message</td>
                         </tr>
                         <tr>
-                            <td><img src='http://localhost/LoveLetter/upload/backCard.png' class='card2'/></td>
+                            <td>
+                                <?php echo "<form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/piocherCarte/".$_SESSION['user']."/20'>" ?>
+                                    <input type='submit' class='card2' id='pioche' name='piocher'/>
+                                </form> 
+                            </td>
                             <td>C'est au tour de [pseudo]</td>
                         </tr>
 
