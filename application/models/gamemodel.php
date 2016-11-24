@@ -150,10 +150,14 @@ class Gamemodel extends CI_Model{
 			');
 			
 			foreach($query->result() as $lobby){
-				$this->piocherCarte($lobby->player1);
-				$this->piocherCarte($lobby->player2);
-				$this->piocherCarte($lobby->player3);
-				$this->piocherCarte($lobby->player4);
+				$this->piocherCarte($lobby->player1, $idlobby);
+				$this->piocherCarte($lobby->player2, $idlobby);
+                                if($idlobby >= 30){
+                                    $this->piocherCarte($lobby->player3, $idlobby);
+                                    if($idlobby >= 40){
+                                        $this->piocherCarte($lobby->player4, $idlobby);
+                                    }
+                                }
 			}
 		}
         
