@@ -64,28 +64,23 @@ class Gamemodel extends CI_Model{
 			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 8, 1)');
 		}
 		
-		function piocherCarte($pseudo){
-			$carte = rand(1,8);
-			$query = $this->getPlayersLobby($pseudo);
-                        $idlobby = 0;
-			foreach($query->result() as $lobby){
-				$idlobby = $lobby->id_lobby;
-			}
-			
-			$query = $this->getPioche($idlobby);
+		function piocherCarte($pseudo, $id_lobby){
+			$carte = rand(1,8);	
+                        
+			$query = $this->getPioche($id_lobby);
                         $qte = 0;
 			foreach($query->result() as $pioche){
 				if($pioche->id_carte==$carte){
 					$qte = $pioche->quantite ;
 					if($qte <= 0){
-						piocherCarte($pseudo);
+						piocherCarte($pseudo, $id_lobby);
 					}
 					else{
 						$qte=$qte-1;//
 						$this->db->query('
 						UPDATE cards_stack 
-						SET quantit? = '.$qte.' 
-						WHERE id_lobby = '.$idlobby.'
+						SET quantite = '.$qte.' 
+						WHERE id_lobby = '.$id_lobby.'
 						AND id_carte = '.$carte.'
 						');
 						
@@ -94,7 +89,7 @@ class Gamemodel extends CI_Model{
 				}
 			}
 		}
-		
+                
 		function ajouterCarteMain($player, $cartenum){
 			$query = $this->db->query('
 			SELECT * FROM cartesmain
