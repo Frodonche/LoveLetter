@@ -186,5 +186,6 @@ caption{
 }
 
 #pioche{
-    background-image:url("http://localhost/LoveLetter/upload/backCard.png");
+    background-image:url(http://localhost/LoveLetter/upload/backCard.png);
+    background-size:cover;
 }

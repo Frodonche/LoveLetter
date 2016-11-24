@@ -99,9 +99,9 @@ class GameController extends CI_Controller{
                      
         }
 
-        function piocherCarte($pseudo, $id_lobby){
-            $this->gamemodel->piocherCarte($pseudo);
-            $this->plateau($id_lobby);
+        function piocherCarte(){
+            $this->gamemodel->piocherCarte($_POST['session']);
+            $this->plateau($_POST['lobby']);
         }
         
         function rooms(){

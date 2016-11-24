@@ -68,8 +68,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <?php echo "<form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/piocherCarte/".$_SESSION['user']."/20'>" ?>
-                                    <input type='submit' class='card2' id='pioche' name='piocher'/>
+                                <?php echo "<form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/piocherCarte/'>" ?>
+                                    <?php echo "<input type='hidden' name='session' value='toto'/>"; ?>
+                                   <input type='hidden' name='lobby' value=20 />
+                                   <input type='submit' class='card2' id='pioche' value=''/>
                                 </form> 
                             </td>
                             <td>C'est au tour de [pseudo]</td>
