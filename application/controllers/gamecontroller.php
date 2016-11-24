@@ -100,7 +100,7 @@ class GameController extends CI_Controller{
         }
 
         function piocherCarte(){
-            $this->gamemodel->piocherCarte($_POST['session']);
+            $this->gamemodel->piocherCarte($_POST['session'], $_POST['lobby']);
             $this->plateau($_POST['lobby']);
         }
         
