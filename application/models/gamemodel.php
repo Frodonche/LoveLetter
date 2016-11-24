@@ -145,6 +145,20 @@ class Gamemodel extends CI_Model{
 			
 			return $query;
 		}
+		
+		function distribuerCartes($idlobby){
+			$query=$this->db->query('
+			SELECT * FROM lobby
+			WHERE id = "'.$idlobby.'"
+			');
+			
+			foreach($query->result() as $lobby){
+				$this->piocherCarte($lobby->player1);
+				$this->piocherCarte($lobby->player2);
+				$this->piocherCarte($lobby->player3);
+				$this->piocherCarte($lobby->player4);
+			}
+		}
         
         function getCardsPos($id_lobby, $numPlayer){
             $query = $this->getLobby($id_lobby);
