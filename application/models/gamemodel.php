@@ -73,11 +73,12 @@ class Gamemodel extends CI_Model{
 			
 			$query = $this->getPioche($idlobby);
 			foreach($query->result() as $pioche){
-				if($pioche->id_carte==$carte){//
-					$qte = $pioche->quantit?;
-					if($qte <= 0):
+				if($pioche->id_carte==$carte){
+					$qte = $pioche->quantite ;
+					if($qte <= 0){
 						piocherCarte($pseudo);
-					else:
+					}
+					else{
 						$qte=$qte-1;//
 						$this->db->query('
 						UPDATE cards_stack 
@@ -86,8 +87,8 @@ class Gamemodel extends CI_Model{
 						AND id_carte = "'.$carte.'"
 						');
 						
-						$this->ajouterMain($pseudo ,$carte)
-					endif;
+						$this->ajouterCarteMain($pseudo ,$carte);
+					}
 				}
 			}
 		}
@@ -111,7 +112,7 @@ class Gamemodel extends CI_Model{
 			
 				$this->db->query('
 				UPDATE cartesmain
-				SET deuxi?me = "'.$cartenum.'"
+				SET deuxieme = "'.$cartenum.'"
 				WHERE pseudo = "'.$player.'"
 				');
 			
