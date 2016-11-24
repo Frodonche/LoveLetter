@@ -82,9 +82,9 @@ class Gamemodel extends CI_Model{
 						$qte=$qte-1;//
 						$this->db->query('
 						UPDATE cards_stack 
-						SET quantit? = "'.$qte.'" 
-						WHERE id_lobby = "'.$idlobby.'"
-						AND id_carte = "'.$carte.'"
+						SET quantit? = '.$qte.' 
+						WHERE id_lobby = '.$idlobby.'
+						AND id_carte = '.$carte.'
 						');
 						
 						$this->ajouterCarteMain($pseudo ,$carte);
@@ -104,7 +104,7 @@ class Gamemodel extends CI_Model{
 			
 				$this->db->query('
 				UPDATE cartesmain
-				SET premiere = "'.$cartenum.'"
+				SET premiere = '.$cartenum.'
 				WHERE pseudo = "'.$player.'"
 				');
 				
@@ -112,7 +112,7 @@ class Gamemodel extends CI_Model{
 			
 				$this->db->query('
 				UPDATE cartesmain
-				SET deuxieme = "'.$cartenum.'"
+				SET deuxieme = '.$cartenum.'
 				WHERE pseudo = "'.$player.'"
 				');
 			
@@ -140,7 +140,7 @@ class Gamemodel extends CI_Model{
 		function getPioche($idlobby){
 			$query = $this->db->query('
 			SELECT * FROM cards_stack 
-			WHERE id_lobby = "'.$idlobby.'"
+			WHERE id_lobby = '.$idlobby.'
 			');
 			
 			return $query;
@@ -149,7 +149,7 @@ class Gamemodel extends CI_Model{
 		function distribuerCartes($idlobby){
 			$query=$this->db->query('
 			SELECT * FROM lobby
-			WHERE id = "'.$idlobby.'"
+			WHERE id = '.$idlobby.'
 			');
 			
 			foreach($query->result() as $lobby){
