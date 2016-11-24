@@ -26,7 +26,7 @@ class Gamemodel extends CI_Model{
         
         function delete($pseudo){
             $query = $this->db->query('DELETE FROM players WHERE pseudo = "'.$pseudo.'"');
-            return $query;
+            //return $query;
         }
         
         function getMessages(){
@@ -48,4 +48,26 @@ class Gamemodel extends CI_Model{
             $cpt = $this->db->query('SELECT * FROM players WHERE pseudo="'.$pseudo.'" AND password="'.$mdp.'"');
             return ($cpt->result() != null);
         }
+		
+		function remplirPioche($id_lobby){
+			$query = $this->db->query('DELETE FROM cards_stack');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 1, 5)');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 2, 2)');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 3, 2)');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 4, 2)');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 5, 2)');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 6, 1)');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 7, 1)');
+			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 8, 1)');
+		}
+		
+		function piocherCarte($pseudo){
+			$carte = rand(1,8);
+			$qte = $query(
+			'SELECT quantite
+			FROM cards_stack JOIN ON lobby USING (id) 
+			WHERE player1="'.$pseudo.'" OR player2="'.$pseudo.'" OR player3="'.$pseudo.'" OR player4="'.$pseudo.'"'
+			
+			);
+		}
 }
