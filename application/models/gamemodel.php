@@ -70,7 +70,7 @@ class Gamemodel extends CI_Model{
 			WHERE pseudo ="'.$pseudo.'"
 			');
 			foreach($query->result() as $main){
-				return (empty($main->premiere) or empty($main->deuxieme));
+				return (empty($main->premiere) || empty($main->deuxieme));
 			}
 			
 		}
@@ -80,27 +80,41 @@ class Gamemodel extends CI_Model{
 				$carte = rand(1,8);	
 							
 				$query = $this->getPioche($id_lobby);
+				
+				$aucuneCarte=1;
+				foreach($query->result() as $carte_i){ //on regarde s'il y a des cartes dans la pioche pour ?viter une r?currence ?ternelle en cas de pioche vide
+					if($carte_i->quantite!=0){
+						$aucuneCarte=1;
+					}
+				}
+				
+				if(aucuneCarte==1){
 							$qte = 0;
-				foreach($query->result() as $pioche){
-					if($pioche->id_carte==$carte){
-						$qte = $pioche->quantite ;
-						if($qte <= 0){
-							$this->piocherCarte($pseudo, $id_lobby);
-						}
-						else{
-							$qte=$qte-1;//
-							$this->db->query('
-							UPDATE cards_stack 
-							SET quantite = '.$qte.' 
-							WHERE id_lobby = '.$id_lobby.'
-							AND id_carte = '.$carte.'
-							');
-							
-							$this->ajouterCarteMain($pseudo ,$carte);
+					foreach($query->result() as $pioche){
+						if($pioche->id_carte==$carte){
+							$qte = $pioche->quantite ;
+							if($qte <= 0){
+								$this->piocherCarte($pseudo, $id_lobby);
+							}
+							else{
+								$qte=$qte-1;//
+								$this->db->query('
+								UPDATE cards_stack 
+								SET quantite = '.$qte.' 
+								WHERE id_lobby = '.$id_lobby.'
+								AND id_carte = '.$carte.'
+								');
+								
+								$this->ajouterCarteMain($pseudo ,$carte);
+							}
 						}
 					}
 				}
 			}
+		}
+		
+		function poserCarte($pseudo, $carte){
+			
 		}
                 
 		function ajouterCarteMain($player, $cartenum){
