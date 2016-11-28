@@ -64,27 +64,40 @@ class Gamemodel extends CI_Model{
 			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 8, 1)');
 		}
 		
+		function peutPiocher($pseudo){
+			$query = $this->db->query('
+			SELECT * FROM cartesmain
+			WHERE pseudo ="'.$pseudo.'"
+			');
+			foreach($query->result() as $main){
+				return (empty($main->premiere) or empty($main->deuxieme));
+			}
+			
+		}
+		
 		function piocherCarte($pseudo, $id_lobby){
-			$carte = rand(1,8);	
-                        
-			$query = $this->getPioche($id_lobby);
-                        $qte = 0;
-			foreach($query->result() as $pioche){
-				if($pioche->id_carte==$carte){
-					$qte = $pioche->quantite ;
-					if($qte <= 0){
-						piocherCarte($pseudo, $id_lobby);
-					}
-					else{
-						$qte=$qte-1;//
-						$this->db->query('
-						UPDATE cards_stack 
-						SET quantite = '.$qte.' 
-						WHERE id_lobby = '.$id_lobby.'
-						AND id_carte = '.$carte.'
-						');
-						
-						$this->ajouterCarteMain($pseudo ,$carte);
+			if($this->peutPiocher($pseudo)){
+				$carte = rand(1,8);	
+							
+				$query = $this->getPioche($id_lobby);
+							$qte = 0;
+				foreach($query->result() as $pioche){
+					if($pioche->id_carte==$carte){
+						$qte = $pioche->quantite ;
+						if($qte <= 0){
+							$this->piocherCarte($pseudo, $id_lobby);
+						}
+						else{
+							$qte=$qte-1;//
+							$this->db->query('
+							UPDATE cards_stack 
+							SET quantite = '.$qte.' 
+							WHERE id_lobby = '.$id_lobby.'
+							AND id_carte = '.$carte.'
+							');
+							
+							$this->ajouterCarteMain($pseudo ,$carte);
+						}
 					}
 				}
 			}
