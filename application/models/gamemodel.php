@@ -117,8 +117,11 @@ class Gamemodel extends CI_Model{
 			}
 		}
 		
-		function poserCarte($pseudo, $carte){
-			
+		function poserCarte($pseudo, $noEmpCarte){
+			$lobby = $this->getPlayersLobby($pseudo);
+                        if($noEmpCarte == 1){
+                            $carte = $this->db->query('SELECT premiere FROM cartesmain WHERE pseudo = "'.$pseudo.'"');
+                        }
 		}
                 
 		function ajouterCarteMain($player, $cartenum){
