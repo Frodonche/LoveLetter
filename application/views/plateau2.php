@@ -134,14 +134,18 @@
                                     <?php if($p1 == $_SESSION['user']){ ?> <!-- Encore une fois, si c'est notre espace -->
                                         <?php foreach($playersCardsMain1->result() as $temp){ ?>
                                             <?php if(!empty($temp->premiere)){ ?> <!-- Si on a une premiere carte --> 
-                                                <td colspan='3' class='card2'><?php echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->premiere).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
+                                                <td colspan='3' class='card2'>
+                                                    <?php echo '<a href="http://localhost/LoveLetter/index.php/gamecontroller/poserCarte1/'.$_SESSION['user'].'/20"><img src="'.getCardPath($temp->premiere).'" class="card2" /></a>'; ?>
+                                                </td>  <!-- On l'affiche -->
 
                                             <?php }else{ ?>
                                                 <td colspan='3' class='card2'></td> <!-- Sinon on affiche une case vide -->
                                             <?php } ?>   
 
                                             <?php if(!empty($temp->deuxieme)){ ?> <!-- Si on a une deuxieme carte --> 
-                                                <td colspan='3' class='card2'><?php echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->deuxieme).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
+                                                <td colspan='3' class='card2'>
+                                                    <?php echo '<a href="http://localhost/LoveLetter/index.php/gamecontroller/poserCarte2/'.$_SESSION['user'].'/20"><img src="'.getCardPath($temp->deuxieme).'" class="card2" /></a>'; ?>
+                                                </td>  <!-- On l'affiche -->
 
                                             <?php }else{ ?>
                                                 <td colspan='3' class='card2'></td> <!-- Sinon on affiche une case vide -->
@@ -252,14 +256,14 @@
                                     <?php if($p2 == $_SESSION['user']){ ?> <!-- Encore une fois, si c'est notre espace -->
                                         <?php foreach($playersCardsMain2->result() as $temp){ ?>
                                             <?php if(!empty($temp->premiere)){ ?> <!-- Si on a une premiere carte --> 
-                                                <td colspan='3' class='card2'><?php echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->premiere).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
+                                                <td colspan='3' class='card2'><?php echo '<a href="http://localhost/LoveLetter/index.php/gamecontroller/poserCarte1/'.$_SESSION['user'].'/20"><img src="'.getCardPath($temp->premiere).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
 
                                             <?php }else{ ?>
                                                 <td colspan='3' class='card2'></td> <!-- Sinon on affiche une case vide -->
                                             <?php } ?>   
 
                                             <?php if(!empty($temp->deuxieme)){ ?> <!-- Si on a une deuxieme carte --> 
-                                                <td colspan='3' class='card2'><?php echo '<a href="http://www.google.fr"><img src="'.getCardPath($temp->deuxieme).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
+                                                <td colspan='3' class='card2'><?php echo '<a href="http://localhost/LoveLetter/index.php/gamecontroller/poserCarte2/'.$_SESSION['user'].'/20"><img src="'.getCardPath($temp->deuxieme).'" class="card2" /></a>'; ?></td>  <!-- On l'affiche -->
 
                                             <?php }else{ ?>
                                                 <td colspan='3' class='card2'></td> <!-- Sinon on affiche une case vide -->

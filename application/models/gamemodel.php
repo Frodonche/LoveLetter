@@ -117,12 +117,80 @@ class Gamemodel extends CI_Model{
 			}
 		}
 		
-		function poserCarte($pseudo, $noEmpCarte){
-			$lobby = $this->getPlayersLobby($pseudo);
-                        if($noEmpCarte == 1){
-                            $carte = $this->db->query('SELECT premiere FROM cartesmain WHERE pseudo = "'.$pseudo.'"');
+		function poserCarte($pseudo, $noEmpCarteMain){
+                        if($noEmpCarteMain == 1){
+                            $query = $this->db->query('SELECT premiere FROM cartesmain WHERE pseudo = "'.$pseudo.'"');
+                        }elseif($noEmpCarteMain == 2){
+                            $query = $this->db->query('SELECT deuxieme FROM cartesmain WHERE pseudo = "'.$pseudo.'"');
                         }
+                        
+                        $noEmpCartePos = $this->getEmplacementVide($pseudo);
+                        
+                        foreach($query->result() as $carte){
+                            if($noEmpCarteMain == 1){
+                                $carteNum = $carte->premiere;                                
+                                $this->db->query('UPDATE cartesmain SET premiere = NULL WHERE pseudo = "'.$pseudo.'"');
+                            }elseif($noEmpCarteMain == 2){
+                                $carteNum = $carte->deuxieme;
+                                $this->db->query('UPDATE cartesmain SET deuxieme = NULL WHERE pseudo = "'.$pseudo.'"');
+                            }
+                        }
+                        
+                        switch($noEmpCartePos){
+                                 case 1:
+                                     $this->db->query('UPDATE cartespos SET premiere = '.$carteNum.' WHERE pseudo = "'.$pseudo.'"');
+                                     break;
+                                 case 2:
+                                     $this->db->query('UPDATE cartespos SET deuxieme = '.$carteNum.' WHERE pseudo = "'.$pseudo.'"');
+                                     break;
+                                 case 3:
+                                     $this->db->query('UPDATE cartespos SET troisieme = '.$carteNum.' WHERE pseudo = "'.$pseudo.'"');
+                                     break;
+                                 case 4:
+                                     $this->db->query('UPDATE cartespos SET quatrieme = '.$carteNum.' WHERE pseudo = "'.$pseudo.'"');
+                                     break;
+                                 case 5:
+                                     $this->db->query('UPDATE cartespos SET cinquieme = '.$carteNum.' WHERE pseudo = "'.$pseudo.'"');
+                                     break;
+                                 case 6:
+                                     $this->db->query('UPDATE cartespos SET sixieme = '.$carteNum.' WHERE pseudo = "'.$pseudo.'"');
+                                     break;
+
+                             }
+                            
+                       
 		}
+                
+                function getEmplacementVide($pseudo){ //retourne le premier emplacement vide dans les cartes à poser
+                        $noEmp=-1;
+			$query = $this->db->query('
+			SELECT * FROM cartespos
+			WHERE pseudo ="'.$pseudo.'"
+			');
+                        
+			foreach($query->result() as $pos){
+                                
+                                        if(empty($pos->premiere)){
+                                            $noEmp = 1;
+                                        }elseif(empty($pos->deuxieme)){
+                                            $noEmp = 2;
+                                        }elseif(empty($pos->troisieme)){
+                                            $noEmp = 3;
+                                        }elseif(empty($pos->quatrieme)){
+                                            $noEmp = 4;
+                                        }elseif(empty($pos->cinquieme)){
+                                            $noEmp = 5;
+                                        }elseif(empty($pos->sixieme)){
+                                            $noEmp = 6;
+                                        }else{
+                                            $noEmp = 0; //cas où on n'a plus de place
+                                        }
+                                        
+                                
+			}
+			
+			return $noEmp; 
+                }
                 
 		function ajouterCarteMain($player, $cartenum){
 			$query = $this->db->query('
@@ -168,6 +236,15 @@ class Gamemodel extends CI_Model{
 			return $lobby;
 		}
 		
+                function getPlayersLobbyID($pseudo){
+                    $lobby = $this->getPlayersLobby($pseudo);
+                    $return = null;
+                    foreach($lobby->result() as $toto){
+                        $return = $toto->id;
+                    }
+                    return $return;
+                }
+                
 		function getPioche($idlobby){
 			$query = $this->db->query('
 			SELECT * FROM cards_stack 

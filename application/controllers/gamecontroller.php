@@ -131,5 +131,18 @@ class GameController extends CI_Controller{
             $this->load->view('deconnexion');
         }
 		
+        function poserCarte1($pseudo, $lobby){
+            $pseudo = $this->uri->segment(3);
+            $lobby = $this->uri->segment(4);
+            $this->gamemodel->poserCarte($pseudo, 1);
+            $this->plateau($lobby);
+        }
+        
+       function poserCarte2($pseudo){
+            $pseudo = $this->uri->segment(3);
+            $lobby = $this->uri->segment(4);
+            $this->gamemodel->poserCarte($pseudo, 2);
+            $this->plateau($lobby);
+        }
 }
 ?>
