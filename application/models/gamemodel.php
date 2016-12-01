@@ -79,25 +79,25 @@ class Gamemodel extends CI_Model{
 		
 		function piocherCarte($pseudo, $id_lobby){
 
-			if(True/*$this->peutPiocher($pseudo)*/){
+			if($this->peutPiocher($pseudo)){
 				$carte = rand(1,8);	
 							
 				$query = $this->getPioche($id_lobby);
 				
-				/*$aucuneCarte=1;
+				$aucuneCarte=1;
 				foreach($query->result() as $carte_i){ //on regarde s'il y a des cartes dans la pioche pour ?viter une r?currence ?ternelle en cas de pioche vide
 					if($carte_i->quantite!=0){
 						$aucuneCarte=0;
 					}
-				}*/
+				}
 				
-				if(True/*$aucuneCarte==0*/){
+				if($aucuneCarte==0){
 					//echo "2";
 							$qte = 0;
 					foreach($query->result() as $pioche){
 						if($pioche->id_carte==$carte){
 							$qte = $pioche->quantite ;
-							if(False/*$qte <= 0*/){
+							if($qte <= 0){
 								$this->piocherCarte($pseudo, $id_lobby);
 							}
 							else{

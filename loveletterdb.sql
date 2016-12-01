@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 24 Novembre 2016 à 16:06
+-- Généré le :  Jeu 01 Décembre 2016 à 16:11
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -55,8 +55,22 @@ INSERT INTO `cards` (`id`, `name`, `path`) VALUES
 CREATE TABLE `cards_stack` (
   `id_lobby` int(11) NOT NULL,
   `id_carte` int(11) NOT NULL,
-  `quantité` int(11) NOT NULL
+  `quantite` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cards_stack`
+--
+
+INSERT INTO `cards_stack` (`id_lobby`, `id_carte`, `quantite`) VALUES
+(20, 1, 99),
+(20, 2, 97),
+(20, 3, 95),
+(20, 4, 95),
+(20, 5, 98),
+(20, 6, 98),
+(20, 7, 99),
+(20, 8, 99);
 
 -- --------------------------------------------------------
 
@@ -75,8 +89,8 @@ CREATE TABLE `cartesmain` (
 --
 
 INSERT INTO `cartesmain` (`pseudo`, `premiere`, `deuxieme`) VALUES
-('titi', 8, 1),
-('toto', 7, NULL);
+('titi', 1, NULL),
+('toto', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -99,7 +113,7 @@ CREATE TABLE `cartespos` (
 --
 
 INSERT INTO `cartespos` (`pseudo`, `premiere`, `deuxieme`, `troisieme`, `quatrieme`, `cinquieme`, `sixieme`) VALUES
-('titi', 1, 4, 5, 6, NULL, NULL),
+('titi', 3, 4, 5, 6, NULL, NULL),
 ('toto', 1, 2, 3, NULL, NULL, NULL);
 
 -- --------------------------------------------------------

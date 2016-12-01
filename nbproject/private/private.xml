@@ -6,9 +6,11 @@
             <file>file:/C:/xamppp/htdocs/LoveLetter/application/controllers/gamecontroller.php</file>
             <file>file:/C:/xamppp/htdocs/LoveLetter/upload/mystyle.css</file>
             <file>file:/C:/xamppp/htdocs/LoveLetter/application/views/cartes.php</file>
+            <file>file:/C:/xamppp/htdocs/LoveLetter/application/views/rooms.php</file>
             <file>file:/C:/xamppp/htdocs/LoveLetter/application/views/players.php</file>
             <file>file:/C:/xamppp/htdocs/LoveLetter/application/views/plateau2.php</file>
             <file>file:/C:/xamppp/htdocs/LoveLetter/application/models/gamemodel.php</file>
+            <file>file:/C:/xamppp/htdocs/LoveLetter/application/views/login.php</file>
         </group>
     </open-files>
 </project-private>
