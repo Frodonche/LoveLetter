@@ -299,6 +299,44 @@ class Gamemodel extends CI_Model{
             return $cards;
         }
         
+		function getPlayingPlayer($idlobby){
+			$query = $this->db->query('
+			SELECT * FROM lobby
+			WHERE id="'.$idlobby.'"
+			');
+			
+			$numturn=0;
+			foreach($query->result() as $lobby){
+				$numturn=$lobby->aquiletour;
+			}
+			
+			$pseudo="error";
+			
+			switch($numturn){
+				case 0:
+					echo "Erreur: pas de joueur !";//d?clencher une erreur
+					break;
+				
+				case 1:
+					$pseudo=$lobby->player1;
+					break;
+				
+				case 2:
+					$pseudo=$lobby->player2;
+					break;
+				
+				case 3:
+					$pseudo=$lobby->player3;
+					break;
+				
+				case 4:
+					$pseudo=$lobby->player4;
+					break;
+			}
+			
+			return $pseudo;
+		}
+		
         function getCardsMain($id_lobby, $numPlayer){
             $query = $this->getLobby($id_lobby);
             if($numPlayer == 1){
