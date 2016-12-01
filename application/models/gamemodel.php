@@ -337,6 +337,20 @@ class Gamemodel extends CI_Model{
 			return $pseudo;
 		}
 		
+		function passerLeTour($idlobby){
+			$query=$this->db->query('
+			SELECT * FROM lobby
+			WHERE id="'.$idlobby.'"
+			');
+			
+			$numturn=0;
+			foreach($query->result() as $lobby){
+				$numturn=$lobby->aquiletour
+			}
+			
+			return $numturn+1;
+		}
+		
         function getCardsMain($id_lobby, $numPlayer){
             $query = $this->getLobby($id_lobby);
             if($numPlayer == 1){
