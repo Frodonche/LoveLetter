@@ -65,39 +65,43 @@ class Gamemodel extends CI_Model{
 		}
 		
 		function peutPiocher($pseudo){
+			$bool=false;
 			$query = $this->db->query('
 			SELECT * FROM cartesmain
 			WHERE pseudo ="'.$pseudo.'"
 			');
 			foreach($query->result() as $main){
-				return (empty($main->premiere) || empty($main->deuxieme));
+				$bool = (empty($main->premiere) || empty($main->deuxieme));
 			}
 			
+			return $bool;
 		}
 		
 		function piocherCarte($pseudo, $id_lobby){
-			if($this->peutPiocher($pseudo)){
+
+			if(True/*$this->peutPiocher($pseudo)*/){
 				$carte = rand(1,8);	
 							
 				$query = $this->getPioche($id_lobby);
 				
-				$aucuneCarte=1;
+				/*$aucuneCarte=1;
 				foreach($query->result() as $carte_i){ //on regarde s'il y a des cartes dans la pioche pour ?viter une r?currence ?ternelle en cas de pioche vide
 					if($carte_i->quantite!=0){
-						$aucuneCarte=1;
+						$aucuneCarte=0;
 					}
-				}
+				}*/
 				
-				if(aucuneCarte==1){
+				if(True/*$aucuneCarte==0*/){
+					//echo "2";
 							$qte = 0;
 					foreach($query->result() as $pioche){
 						if($pioche->id_carte==$carte){
 							$qte = $pioche->quantite ;
-							if($qte <= 0){
+							if(False/*$qte <= 0*/){
 								$this->piocherCarte($pseudo, $id_lobby);
 							}
 							else{
-								$qte=$qte-1;//
+								$qte=$qte-1;
 								$this->db->query('
 								UPDATE cards_stack 
 								SET quantite = '.$qte.' 
