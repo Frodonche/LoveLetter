@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 01 Décembre 2016 à 16:11
--- Version du serveur :  10.1.16-MariaDB
+-- Généré le :  Ven 02 Décembre 2016 à 19:12
+-- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -63,14 +63,14 @@ CREATE TABLE `cards_stack` (
 --
 
 INSERT INTO `cards_stack` (`id_lobby`, `id_carte`, `quantite`) VALUES
-(20, 1, 99),
-(20, 2, 97),
-(20, 3, 95),
-(20, 4, 95),
-(20, 5, 98),
-(20, 6, 98),
-(20, 7, 99),
-(20, 8, 99);
+(20, 1, 95),
+(20, 2, 95),
+(20, 3, 89),
+(20, 4, 91),
+(20, 5, 93),
+(20, 6, 97),
+(20, 7, 96),
+(20, 8, 97);
 
 -- --------------------------------------------------------
 
@@ -89,8 +89,8 @@ CREATE TABLE `cartesmain` (
 --
 
 INSERT INTO `cartesmain` (`pseudo`, `premiere`, `deuxieme`) VALUES
-('titi', 1, NULL),
-('toto', NULL, NULL);
+('titi', NULL, 3),
+('toto', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -113,8 +113,8 @@ CREATE TABLE `cartespos` (
 --
 
 INSERT INTO `cartespos` (`pseudo`, `premiere`, `deuxieme`, `troisieme`, `quatrieme`, `cinquieme`, `sixieme`) VALUES
-('titi', 3, 4, 5, 6, NULL, NULL),
-('toto', 1, 2, 3, NULL, NULL, NULL);
+('titi', 3, 4, 5, NULL, NULL, NULL),
+('toto', 1, 2, 8, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,18 +128,19 @@ CREATE TABLE `lobby` (
   `player2` varchar(50) DEFAULT NULL,
   `player3` varchar(50) DEFAULT NULL,
   `player4` varchar(50) DEFAULT NULL,
-  `aquiletour` int(11) NOT NULL,
-  `ended` tinyint(1) NOT NULL
+  `aquiletour` int(11) NOT NULL DEFAULT '1',
+  `finie` tinyint(4) NOT NULL DEFAULT '0',
+  `apioche` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `lobby`
 --
 
-INSERT INTO `lobby` (`id`, `player1`, `player2`, `player3`, `player4`, `aquiletour`, `ended`) VALUES
-(20, 'titi', 'toto', NULL, NULL, 1, 1),
-(30, 'tata', 'tete', 'tyty', NULL, 1, 0),
-(40, 'Premier', 'Deuxieme', 'Troisieme', 'Quatrieme', 1, 1);
+INSERT INTO `lobby` (`id`, `player1`, `player2`, `player3`, `player4`, `aquiletour`, `finie`, `apioche`) VALUES
+(20, 'titi', 'toto', NULL, NULL, 1, 1, 0),
+(30, 'tata', 'tete', 'tyty', NULL, 1, 0, 0),
+(40, 'Premier', 'Deuxieme', 'Troisieme', 'Quatrieme', 1, 1, 0);
 
 -- --------------------------------------------------------
 

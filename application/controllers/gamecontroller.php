@@ -134,14 +134,14 @@ class GameController extends CI_Controller{
         function poserCarte1($pseudo, $lobby){
             $pseudo = $this->uri->segment(3);
             $lobby = $this->uri->segment(4);
-            $this->gamemodel->poserCarte($pseudo, 1);
+            $this->gamemodel->poserCarte($pseudo, 1, $lobby);
             $this->plateau($lobby);
         }
         
        function poserCarte2($pseudo){
             $pseudo = $this->uri->segment(3);
             $lobby = $this->uri->segment(4);
-            $this->gamemodel->poserCarte($pseudo, 2);
+            $this->gamemodel->poserCarte($pseudo, 2, $lobby);
             $this->plateau($lobby);
         }
 }

@@ -17,6 +17,31 @@ class Gamemodel extends CI_Model{
             $query = $this->db->query('SELECT pseudo, password, online FROM players');
             return $query;
         }
+		
+		function getPlayersNumber($idlobby){//LOL
+			
+			$query= $this->db->query('
+			SELECT * FROM lobby
+			WHERE id ='.$idlobby.'
+			');
+			
+			$counter=0;
+			foreach($query->result() as $lobby){
+				if(!empty($lobby->player1)){
+					$counter++;
+				}
+				if(!empty($lobby->player2)){
+					$counter++;
+				}
+				if(!empty($lobby->player3)){
+					$counter++;
+				}
+				if(!empty($lobby->player4)){
+					$counter++;
+				}
+			}
+			return $counter;
+		}
         
         function register($pseudo, $psw){
             $cpt = $this->db->query('SELECT * FROM players WHERE pseudo="'.$pseudo.'"');
@@ -38,7 +63,7 @@ class Gamemodel extends CI_Model{
 		
         function getLobby($id_lobby){
                 if($id_lobby > 0){
-                    $query = $this->db->query('SELECT * FROM lobby WHERE id = "'.$id_lobby.'"');
+                    $query = $this->db->query('SELECT * FROM lobby WHERE id = '.$id_lobby.'');
                 }
                 else{ //comme ça on peut mettre 0 ou moins si on veut tout afficher
                     $query = $this->db->query('SELECT * FROM lobby'); 
@@ -64,22 +89,28 @@ class Gamemodel extends CI_Model{
 			$query = $this->db->query('INSERT INTO cards_stack VALUES ('.$id_lobby.', 8, 1)');
 		}
 		
-		function peutPiocher($pseudo){
+		function peutPiocher($pseudo, $idlobby){//LOL
 			$bool=false;
 			$query = $this->db->query('
 			SELECT * FROM cartesmain
 			WHERE pseudo ="'.$pseudo.'"
 			');
 			foreach($query->result() as $main){
-				$bool = (empty($main->premiere) || empty($main->deuxieme));
+				$bool = (empty($main->premiere) || empty($main->deuxieme)); //on verifie que la main du joueur peut ?tre remplie
 			}
 			
-			return $bool;
+			$playingplayer=$this->getPlayingPlayer($idlobby);
+			
+			$bool2 = ($playingplayer == $pseudo); //on verifie que c'est bien le tour du joueur qui tente de piocher est bien
+			
+			$bool3 = !$this->APioche($idlobby); //on verifie que le joueur n'a pas d?j? pioch?
+			
+			return ($bool && $bool2 && $bool3);
 		}
 		
 		function piocherCarte($pseudo, $id_lobby){
 
-			if($this->peutPiocher($pseudo)){
+			if($this->peutPiocher($pseudo, $id_lobby)){
 				$carte = rand(1,8);	
 							
 				$query = $this->getPioche($id_lobby);
@@ -92,7 +123,7 @@ class Gamemodel extends CI_Model{
 				}
 				
 				if($aucuneCarte==0){
-					//echo "2";
+
 							$qte = 0;
 					foreach($query->result() as $pioche){
 						if($pioche->id_carte==$carte){
@@ -113,11 +144,13 @@ class Gamemodel extends CI_Model{
 							}
 						}
 					}
-				}
+				}//sinon fin de la partie
+				$this->setAPioche($id_lobby,1);
 			}
 		}
 		
-		function poserCarte($pseudo, $noEmpCarteMain){
+		function poserCarte($pseudo, $noEmpCarteMain, $idlobby){//LOL
+				if($this->peutPoser($pseudo, $idlobby)){
                         if($noEmpCarteMain == 1){
                             $query = $this->db->query('SELECT premiere FROM cartesmain WHERE pseudo = "'.$pseudo.'"');
                         }elseif($noEmpCarteMain == 2){
@@ -157,10 +190,24 @@ class Gamemodel extends CI_Model{
                                      break;
 
                              }
-                            
-                       
+							 
+							 $this->passerLeTour($idlobby);
+							 $this->setAPioche($idlobby,0);
+				}      
 		}
-                
+		
+		function peutPoser($pseudo, $idlobby){//LOL
+			
+			$playingplayer=$this->getPlayingPlayer($idlobby);
+			
+			$bool = ($playingplayer == $pseudo); // on verifie que c'est au tour du joueur
+			
+			$bool2 = $this->APioche($idlobby); // on verifie que le joueur a pioch?
+			
+			return ($bool && $bool2);
+			
+		}
+		
                 function getEmplacementVide($pseudo){ //retourne le premier emplacement vide dans les cartes à poser
                         $noEmp=-1;
 			$query = $this->db->query('
@@ -219,8 +266,8 @@ class Gamemodel extends CI_Model{
 			}
 		}
 		
-		function getPlayersLobby($pseudo){
-			$lobby = $this->db->query(
+		/*function getPlayersLobby($pseudo){ // CETTE FONCTION NE FONCTIONNE PAS !!!
+			$query = $this->db->query(
 			'SELECT *
 			FROM cartesmain INNER JOIN lobby
 			ON (cartesmain.pseudo = lobby.player1) 
@@ -233,17 +280,14 @@ class Gamemodel extends CI_Model{
 			OR player4="'.$pseudo.'"'
 			);
 			
-			return $lobby;
-		}
-		
-                function getPlayersLobbyID($pseudo){
-                    $lobby = $this->getPlayersLobby($pseudo);
-                    $return = null;
-                    foreach($lobby->result() as $toto){
-                        $return = $toto->id;
-                    }
-                    return $return;
-                }
+			$idlobby=20;
+			
+			foreach($query->result() as $lobby){
+				$idlobby = $lobby->id;
+			}
+			
+			return $idlobby;
+		}*/
                 
 		function getPioche($idlobby){
 			$query = $this->db->query('
@@ -299,10 +343,10 @@ class Gamemodel extends CI_Model{
             return $cards;
         }
         
-		function getPlayingPlayer($idlobby){
+		function getPlayingPlayer($idlobby){//LOL
 			$query = $this->db->query('
 			SELECT * FROM lobby
-			WHERE id="'.$idlobby.'"
+			WHERE id='.$idlobby.'
 			');
 			
 			$numturn=0;
@@ -312,10 +356,12 @@ class Gamemodel extends CI_Model{
 			
 			$pseudo="error";
 			
+			echo $numturn;
+			
 			switch($numturn){
-				case 0:
+				/*case 0:
 					echo "Erreur: pas de joueur !";//d?clencher une erreur
-					break;
+					break;*/
 				
 				case 1:
 					$pseudo=$lobby->player1;
@@ -337,18 +383,51 @@ class Gamemodel extends CI_Model{
 			return $pseudo;
 		}
 		
-		function passerLeTour($idlobby){
+		function APioche($idlobby){//LOL
+		$query = $this->db->query('
+			SELECT * FROM lobby
+			WHERE id = '.$idlobby.'
+			');
+			
+			foreach($query->result() as $lobby){
+				$apioche=$lobby->apioche;
+			}
+			
+			return ($apioche==1);
+		}
+		
+		function setAPioche($idlobby, $etat){//LOL
+			$this->db->query('
+			UPDATE lobby
+			SET apioche = '.$etat.'
+			WHERE id = '.$idlobby.'
+			');
+		}
+		
+		function setTourDeJeu($idlobby, $numplayer){//LOL
+			$this->db->query('
+			UPDATE lobby
+			SET aquiletour = '.$numplayer.'
+			WHERE id = '.$idlobby.'
+			');
+		}
+		
+		function passerLeTour($idlobby){//LOL
 			$query=$this->db->query('
 			SELECT * FROM lobby
-			WHERE id="'.$idlobby.'"
+			WHERE id='.$idlobby.'
 			');
 			
 			$numturn=0;
 			foreach($query->result() as $lobby){
-				$numturn=$lobby->aquiletour
+				$numturn=$lobby->aquiletour;
 			}
 			
-			return $numturn+1;
+			$nbplayers = $this->getPlayersNumber($idlobby);
+			
+			$nextturn = ((($numturn-1)%$nbplayers)+1)%$nbplayers+1;
+			
+			$this->setTourDeJeu($idlobby, $nextturn);
 		}
 		
         function getCardsMain($id_lobby, $numPlayer){

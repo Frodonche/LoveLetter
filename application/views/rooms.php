@@ -67,7 +67,7 @@
                     </td>
                     <td> 
                         <?php
-                            if($row->ended == 0){
+                            if($row->finie == 0){
                                 echo "en cours";
                             }else{ 
                                 echo "<a href='http://localhost/LoveLetter/index.php/gamecontroller/plateau/".$row->id."'/> Disponible </a>";
