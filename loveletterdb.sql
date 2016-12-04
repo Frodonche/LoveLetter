@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 02 Décembre 2016 à 19:12
+-- Généré le :  Dim 04 Décembre 2016 à 14:03
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -64,11 +64,11 @@ CREATE TABLE `cards_stack` (
 
 INSERT INTO `cards_stack` (`id_lobby`, `id_carte`, `quantite`) VALUES
 (20, 1, 95),
-(20, 2, 95),
+(20, 2, 94),
 (20, 3, 89),
 (20, 4, 91),
 (20, 5, 93),
-(20, 6, 97),
+(20, 6, 96),
 (20, 7, 96),
 (20, 8, 97);
 
@@ -90,7 +90,7 @@ CREATE TABLE `cartesmain` (
 
 INSERT INTO `cartesmain` (`pseudo`, `premiere`, `deuxieme`) VALUES
 ('titi', NULL, 3),
-('toto', NULL, 8);
+('toto', 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -113,8 +113,8 @@ CREATE TABLE `cartespos` (
 --
 
 INSERT INTO `cartespos` (`pseudo`, `premiere`, `deuxieme`, `troisieme`, `quatrieme`, `cinquieme`, `sixieme`) VALUES
-('titi', 3, 4, 5, NULL, NULL, NULL),
-('toto', 1, 2, 8, NULL, NULL, NULL);
+('titi', 3, 4, 5, 2, NULL, NULL),
+('toto', 1, 2, 8, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
