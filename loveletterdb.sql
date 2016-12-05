@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 04 Décembre 2016 à 14:03
--- Version du serveur :  10.1.19-MariaDB
+-- Généré le :  Lun 05 Décembre 2016 à 01:39
+-- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -63,13 +63,13 @@ CREATE TABLE `cards_stack` (
 --
 
 INSERT INTO `cards_stack` (`id_lobby`, `id_carte`, `quantite`) VALUES
-(20, 1, 95),
-(20, 2, 94),
-(20, 3, 89),
-(20, 4, 91),
-(20, 5, 93),
-(20, 6, 96),
-(20, 7, 96),
+(20, 1, 93),
+(20, 2, 93),
+(20, 3, 88),
+(20, 4, 89),
+(20, 5, 92),
+(20, 6, 94),
+(20, 7, 94),
 (20, 8, 97);
 
 -- --------------------------------------------------------
@@ -89,8 +89,8 @@ CREATE TABLE `cartesmain` (
 --
 
 INSERT INTO `cartesmain` (`pseudo`, `premiere`, `deuxieme`) VALUES
-('titi', NULL, 3),
-('toto', 6, NULL);
+('titi', 1, NULL),
+('toto', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -113,8 +113,21 @@ CREATE TABLE `cartespos` (
 --
 
 INSERT INTO `cartespos` (`pseudo`, `premiere`, `deuxieme`, `troisieme`, `quatrieme`, `cinquieme`, `sixieme`) VALUES
-('titi', 3, 4, 5, 2, NULL, NULL),
-('toto', 1, 2, 8, 8, NULL, NULL);
+('titi', 7, NULL, NULL, NULL, NULL, NULL),
+('toto', NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id_lobby` int(11) NOT NULL,
+  `pseudo` varchar(50) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `position` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -138,7 +151,7 @@ CREATE TABLE `lobby` (
 --
 
 INSERT INTO `lobby` (`id`, `player1`, `player2`, `player3`, `player4`, `aquiletour`, `finie`, `apioche`) VALUES
-(20, 'titi', 'toto', NULL, NULL, 1, 1, 0),
+(20, 'toto', 'titi', NULL, NULL, 2, 1, 1),
 (30, 'tata', 'tete', 'tyty', NULL, 1, 0, 0),
 (40, 'Premier', 'Deuxieme', 'Troisieme', 'Quatrieme', 1, 1, 0);
 
@@ -194,6 +207,13 @@ ALTER TABLE `cartespos`
   ADD PRIMARY KEY (`pseudo`);
 
 --
+-- Index pour la table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`position`),
+  ADD KEY `id_lobby` (`id_lobby`);
+
+--
 -- Index pour la table `lobby`
 --
 ALTER TABLE `lobby`
@@ -210,6 +230,15 @@ ALTER TABLE `players`
   ADD PRIMARY KEY (`pseudo`);
 
 --
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `position` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
 -- Contraintes pour les tables exportées
 --
 
@@ -224,6 +253,12 @@ ALTER TABLE `cartesmain`
 --
 ALTER TABLE `cartespos`
   ADD CONSTRAINT `cartespos_ibfk_1` FOREIGN KEY (`pseudo`) REFERENCES `players` (`pseudo`);
+
+--
+-- Contraintes pour la table `chat`
+--
+ALTER TABLE `chat`
+  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_lobby`) REFERENCES `lobby` (`id`);
 
 --
 -- Contraintes pour la table `lobby`

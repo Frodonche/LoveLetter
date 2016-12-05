@@ -189,3 +189,14 @@ caption{
     background-image:url(http://localhost/LoveLetter/upload/backCard.png);
     background-size:cover;
 }
+
+
+.chat {
+    position:absolute;
+    bottom: 1%;
+    left: 42%;
+}
+
+.pasdebords{
+    border:0;
+}

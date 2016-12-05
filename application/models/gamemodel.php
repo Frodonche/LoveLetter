@@ -456,4 +456,59 @@ class Gamemodel extends CI_Model{
             return $cards;
         }
 
+        function quitterLobby($player){
+            // on supprime la main et le jeu du joueur 
+            $this->db->query('DELETE FROM cartesmain WHERE pseudo ="'.$player.'"');
+            $this->db->query('DELETE FROM cartespos WHERE pseudo ="'.$player.'"');
+            
+            // on sélectionne le lobby dans lequel est le joueur
+            $query = $this->db->query('SELECT * FROM lobby WHERE player1="'.$player.'"'
+                    . 'OR player2="'.$player.'"'
+                    . 'OR player3="'.$player.'"'
+                    . 'OR player4="'.$player.'"');
+            
+            // puis on vire le joueur du lobby
+            foreach($query->result() as $lobby){
+                if($lobby->player1 == $player){
+                    $this->db->query('UPDATE lobby SET player1 = NULL WHERE id ="'.$lobby->id.'"');
+                }elseif($lobby->player2 == $player){
+                    $this->db->query('UPDATE lobby SET player2 = NULL WHERE id ="'.$lobby->id.'"');
+                }elseif($lobby->player3 == $player){
+                    $this->db->query('UPDATE lobby SET player3 = NULL WHERE id ="'.$lobby->id.'"');
+                }elseif($lobby->player4 == $player){
+                    $this->db->query('UPDATE lobby SET player4 = NULL WHERE id ="'.$lobby->id.'"');
+                }
+            }          
+        }
+        
+        function entrerLobby($id_lobby, $pseudo){
+            $query = $this->db->query('SELECT * FROM lobby WHERE id="'.$id_lobby.'"');
+            
+            foreach($query->result() as $lobby){
+                
+                // on créé les entrée cartesmain et cartespos du joueur
+                $this->db->query('INSERT INTO cartesmain(pseudo) VALUES ("'.$pseudo.'")');
+                $this->db->query('INSERT INTO cartespos (pseudo) VALUES ("'.$pseudo.'")');
+                
+                // on ajoute le joueur au lobby
+                if(empty($lobby->player1)){
+                    $this->db->query('UPDATE lobby SET player1 = "'.$pseudo.'" WHERE id="'.$id_lobby.'"');
+                }elseif(empty($lobby->player2)){
+                    $this->db->query('UPDATE lobby SET player2 = "'.$pseudo.'" WHERE id="'.$id_lobby.'"');
+                }elseif(empty($lobby->player3)){
+                    $this->db->query('UPDATE lobby SET player3 = "'.$pseudo.'" WHERE id="'.$id_lobby.'"');
+                }elseif(empty($lobby->player4)){
+                    $this->db->query('UPDATE lobby SET player4 = "'.$pseudo.'" WHERE id="'.$id_lobby.'"');
+                }               
+            }   
+        }
+        
+        function posterMessage($pseudo, $message, $id_lobby){
+            $this->db->query('INSERT INTO chat(id_lobby, pseudo, message) VALUES("'.$id_lobby.'", "'.$pseudo.'", "'.$message.'")');
+        }
+        
+        function getChat($id_lobby){
+            $query = $this->db->query('SELECT * FROM chat WHERE id_lobby = "'.$id_lobby.'" ORDER BY position');
+            return $query;
+        }
 }

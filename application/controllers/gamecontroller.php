@@ -57,9 +57,15 @@ class GameController extends CI_Controller{
            }
            $this->players();
        }
-	   
+	
+       function entrerLobby($id_lobby, $pseudo){
+           $this->gamemodel->entrerLobby($id_lobby, $pseudo);
+           $this->plateau($id_lobby);
+       }
+       
         function plateau($id_lobby){//test de la vue plateau
                      $data['lobby'] = $this->gamemodel->getLobby($id_lobby);
+                     $data['chat'] = $this->gamemodel->getChat($id_lobby);
                      if(20 <= $id_lobby && $id_lobby < 30){ //si c'est un lobby à 2
                          $data['playersCardsPos1'] = $this->gamemodel->getCardsPos($id_lobby, 1);
                          $data['playersCardsMain1'] = $this->gamemodel->getCardsMain($id_lobby, 1);
@@ -109,6 +115,13 @@ class GameController extends CI_Controller{
             $this->plateau($lobby);
 		}
         
+        function quitterLobby(){
+            if ($_POST['player']!=''){
+                $this->gamemodel->quitterLobby($_POST['player']);
+                $this->rooms();
+            }
+        }
+                
         function rooms(){
             $data['lobbies'] = $this->gamemodel->getLobby(0);
             $this->load->view('rooms', $data);
@@ -143,6 +156,13 @@ class GameController extends CI_Controller{
             $lobby = $this->uri->segment(4);
             $this->gamemodel->poserCarte($pseudo, 2, $lobby);
             $this->plateau($lobby);
+        }
+        
+        function posterMessage(){
+            if($_POST['pseudo'] && $_POST['textChat'] && $_POST['id_lobby']){
+                $this->gamemodel->posterMessage($_POST['pseudo'], $_POST['textChat'], $_POST['id_lobby']);
+            }
+            $this->plateau($_POST['id_lobby']);
         }
 }
 ?>

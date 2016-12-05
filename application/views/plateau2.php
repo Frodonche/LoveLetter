@@ -52,7 +52,7 @@
         </div>
             <?php if(isset($lobby)){
                         foreach($lobby->result() as $row){
-
+                                                    $id = $row->id;
                                                     $p1 = $row->player1;
                                                     $p2 = $row->player2;
 
@@ -74,7 +74,18 @@
                                    <input type='submit' class='card2' id='pioche' value=''/>
                                 </form> 
                             </td>
-                            <td>C'est au tour de [pseudo]</td>
+                            <td>C'est au tour de 
+                                <?php if(isset($lobby)){ 
+                                        foreach($lobby->result() as $row){
+                                            if ($row->aquiletour == 1){
+                                                echo $row->player1;
+                                            }elseif($row->aquiletour == 2){
+                                                echo $row->player2;
+                                            }
+                                        }
+                            } ?>
+                            
+                            </td>
                         </tr>
 
                     </table>
@@ -321,10 +332,31 @@
                 </div>
             <?php } ?>
         </div>
-        <div id='boxquit'>
-            <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/rooms'>	
-                <td><input type ='submit' value="Quitter le lobby"/></td>
-            </form>
+    
+        <div id='maj' class="chat">
+            <table>
+                <?php if(isset($chat)){
+                            foreach($chat->result() as $row){ ?>
+                                <tr><td colspan="2" class='pasdebords'> <?php echo $row->pseudo; echo " : "; echo $row->message ;?> </td></tr>
+                            
+                    <?php }   
+                      }
+            ?>   
+                <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/posterMessage'>
+                    <input type='hidden' name=pseudo value='<?php echo $_SESSION['user']; ?>'/>
+                    <input type="hidden" name="id_lobby" value='<?php echo $id;?>'/>
+                    <tr>
+                        <td><input type='text' name='textChat'/></td>
+                        <td><input type='submit' value='Envoyer'/></td>
+                    </tr>
+                </form>
+                <tr>
+                    <form method = 'POST' action='http://localhost/LoveLetter/index.php/gamecontroller/quitterLobby'>
+                        <input type='hidden' name='player' value=<?php echo $_SESSION['user'];?> />
+                        <td colspan="2"><input type ='submit' value="Quitter le lobby"/></td>
+                    </form>
+                </tr>
+            </table>
         </div>
         <?php }?>
 		

@@ -70,7 +70,7 @@
                             if($row->finie == 0){
                                 echo "en cours";
                             }else{ 
-                                echo "<a href='http://localhost/LoveLetter/index.php/gamecontroller/plateau/".$row->id."'/> Disponible </a>";
+                                echo "<a href='http://localhost/LoveLetter/index.php/gamecontroller/entrerLobby/".$row->id."/".$_SESSION['user']."'/> Disponible </a>";
                         
                         }
                         ?>
