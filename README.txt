@@ -8,7 +8,7 @@ Database utilisée : MySQL
 Port utilisé : 3306
 
 BDD disponible en important loveletterdb.sql, disponible dans ce dossier
-
+Si besoin : fichier de configuration disponible sous application/config/database.php
 
 ----- SERVEUR PHP -----
 Serveur utilisé : Xampp
